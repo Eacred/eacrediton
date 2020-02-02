@@ -1,0 +1,808 @@
+@import (reference) "./main.less";
+@import (reference) "./Icons.less";
+
+.accounts-button-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: @accounts-button-icon;
+  background-position: 50%;
+  background-size: 12px auto;
+  background-repeat: no-repeat;
+  box-shadow: 0 3px 8px var(--input-color-shadow);
+  border-radius: 5px;
+  background-color: var(--input-color);
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.accounts-button-icon:hover {
+  box-shadow: 0 1px 3px var(--input-color-shadow);
+  background-color: var(--account-button-hover);
+}
+
+.clipboard-box {
+  position: relative;
+  display: inline-block;
+}
+
+.copy-to-clipboard-icon {
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+  background-image: var(--copy-to-clipboard-icon);
+  background-position: 0 0;
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.copy-to-clipboard-icon:hover {
+  opacity: 0.8;
+}
+
+.copy-to-clipboard-success {
+  font-size: 12px;
+  color: var(--background-back-color);
+  background-color: var(--accent-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 2px 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -4px);
+  min-width: 4em;
+  text-align: center;
+}
+
+.copy-to-clipboard-success.hidden {
+  display: none;
+}
+
+.key-blue-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  background-color: var(--input-color);
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.21);
+  color: var(--white-button-text);
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 100ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  user-select: none;
+}
+
+.key-blue-button:hover {
+  background-color: var(--input-color-hover);
+}
+
+.key-blue-button:active {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--input-color-hover);
+}
+
+.key-blue-button-disabled,
+.key-blue-button[disabled],
+.danger-button-disabled,
+.danger-button[disabled] {
+  cursor: default;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  background-color: var(--disabled-background-color);
+  box-shadow: none;
+  color: var(--disabled-color);
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  user-select: none;
+}
+
+.slate-gray-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  background-color: var(--back-button-bg);
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.21);
+  color: var(--back-button-text);
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 100ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  user-select: none;
+}
+
+.slate-gray-button:hover {
+  background-color: var(--stroke-color-hovered);
+}
+
+.thin-button {
+  padding: 5px 20px 5px 20px;
+}
+
+.invisible-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  color: var(--disabled-color);
+  background-color: inherit;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 100ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  user-select: none;
+}
+
+.invisible-button:hover {
+  color: var(--stroke-color-hovered);
+}
+
+.loader-settings-logs .invisible-button {
+  color: var(--getstarted-menu-color);
+}
+.loader-settings-logs .invisible-button:hover {
+  color: var(--menutab-hover);
+}
+
+.update-available-button {
+  color: var(--input-color);
+  text-decoration: underline;
+  user-select: none;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 600;
+}
+
+.update-available-button:hover {
+  color: var(--input-color-hover);
+}
+
+.danger-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  background-color: var(--error-red);
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.21);
+  color: var(--background-back-color);
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 100ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  user-select: none;
+}
+
+.danger-button:hover {
+  background-color: var(--error-red-hover);
+}
+
+.close-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px 30px 14px 30px;
+  border-radius: 5px;
+  background-color: var(--title-text-and-button-background);
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.21);
+  color: var(--stroke-color-default);
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 100ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  user-select: none;
+}
+
+.close-button:hover {
+  background-color: var(--title-text-and-button-background-hovered);
+}
+
+.manage-pools-button {
+  background-color: var(--input-color);
+  background-image: @manage-pools-icon;
+  background-position: 50% 50%;
+  background-size: 12px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.21);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--input-color-hover);
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.info-field-modal-button {
+  float: right;
+  border-radius: 0px;
+  background-image: var(--help-getstared);
+  background-position: 50% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.info-modal-button {
+  border-radius: 0px;
+  background-image: var(--tickets-info-icon);
+  background-position: 50% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  outline: 0;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  background-color: transparent;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.info-modal-button:hover {
+  opacity: 0.7;
+}
+
+.path-input-and-button {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px var(--stroke-color-default) solid;
+}
+
+.path-input-and-button:hover {
+  border-bottom: 1px var(--stroke-color-hovered) solid;
+}
+
+.path-input-area {
+  width: 100%;
+  margin-right: 15px;
+}
+
+.path-button {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: var(--search-icon);
+  background-size: 16px 16px;
+}
+
+.path-button:hover {
+  opacity: 0.7;
+}
+
+.path-input {
+  border-style: none;
+  cursor: text;
+  background: transparent;
+  outline: none;
+  border: none !important;
+  align-items: center;
+  font-family: var(--font-family-regular);
+  font-size: 13px;
+  display: flex;
+  flex: auto;
+  flex-grow: 1;
+
+  > input {
+    width: 100%;
+  }
+}
+
+.path-input:hover {
+  opacity: 0.7;
+}
+
+.ticket-cogs-opened,
+.ticket-cogs-closed {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 0px;
+  background-position: 50% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  color: var(--background-back-color);
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ticket-cogs-opened {
+  background-image: var(--tickets-cogs-opened-icon);
+}
+
+.ticket-cogs-closed {
+  background-image: @tickets-cogs-closed-icon;
+}
+
+.ticket-cogs-opened:hover,
+.ticket-cogs-closed:hover {
+  opacity: 0.7;
+}
+
+.rescan-progress-area {
+  color: var(--disabled-color);
+  font-size: 13px;
+  display: flex;
+  align-items: center;  
+}
+
+.rescan-progress-percent {
+  color: var(--input-color-default);
+}
+
+.rescan-progress-fraction {
+  color: var(--input-color-default);
+  margin: 0px 4px 0px 4px;
+}
+
+.rescan-progress-indicator {
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+
+  .linear-progress.small {
+    border-radius: 0px;
+    background-color: var(--input-color-hover);
+  }
+
+  .linear-progress.small .linear-progress-bar {
+    background: var(--accent-color);
+    border-radius: 0px;
+  }
+}
+
+.rescan-button-area {
+  padding-top: 2px;
+  padding-right: 5px;
+  float: left;
+}
+
+.rescan-button {
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: var(--menu-rescan-icon);
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
+.rescan-button:not(.spin):hover {
+  opacity: 0.7;
+  background-image: @menu-rescan-hover-icon;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rescan-button.spin {
+  animation: spin 1s linear infinite;
+}
+
+.rescan-button.spin:hover {
+  opacity: 1;
+}
+
+.rescan-cancel-button-area {
+  margin: 0 -12px 0 auto;
+}
+
+.gettickets-cancel-button,
+.rescan-cancel-button {
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: @menu-cancel-rescan-icon;
+  background-size: 16px 16px;
+  cursor: pointer;
+  margin: 10px;
+  background-repeat: no-repeat;
+}
+
+.gettickets-cancel-button:hover,
+.rescan-cancel-button:hover {
+  opacity: 0.7;
+}
+
+.transaction-link {
+  cursor: pointer;
+  color: var(--link-color);
+}
+
+.transaction-link:hover {
+  color: var(--link-hover-color);
+}
+
+[data-pseudo-content]::before,
+[data-pseudo-content--before]::before,
+[data-pseudo-content--after]::after {
+  content: attr(data-pseudo-content);
+}
+
+.inline-field {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.inline-field-field {
+  flex-grow: 1;
+  padding-left: 0.5em;
+}
+
+.tabs > .tab {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tabs > .tab > a {
+  margin: 0px 5px 0px 5px;
+  color: var(--tab-text);
+  text-decoration: none;
+}
+
+.tabs > .tab > a:hover,
+.tabs > .tab > a.active {
+  color: var(--tab-text-active-hover);
+}
+
+.no-transactions-indicator,
+.no-tickets-indicator,
+.no-more-tickets-indicator,
+.no-stats-indicator {
+  text-align: center;
+  color: var(--title-text-and-button-background);
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center 30px;
+}
+
+.no-transactions-indicator {
+  color: var(--title-text-and-button-background);
+}
+
+.no-transactions-indicator-img {
+  background-image: var(--no-tx-icon);
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center 30px;
+}
+
+.no-more-tickets-indicator {
+  height: 35px;
+  background-color: #E6EAED;
+  line-height: 35px;
+}
+
+.no-tickets-indicator {
+  background-image: @no-tickets-icon;
+}
+
+.no-stats-indicator {
+  background-image: @stats-disabled-icon;
+}
+
+.vertical-expand {
+  background-image: var(--arrow-right-gray-icon);
+  background-repeat: no-repeat;
+  background-size: 20px 10px;
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  transform: rotate(90deg);
+  transition: all 0.5s;
+  position: absolute;
+  top: 28px;
+  right: 25px;
+}
+
+.vertical-expand.expanded {
+  transform: rotate(270deg);
+}
+
+.step-indicator {
+  display: inline-flex;
+
+  .step.current {
+    margin: 12px;
+    height: 14px;
+    width: 14px;
+    border: 2px solid var(--step-indicator);
+    border-radius: 10px;
+  }
+
+  .step.checked {
+    cursor: pointer;
+    margin: 16px;
+    height: 10px;
+    width: 10px;
+    background-image: var(--onboarding-checkcircle);
+    background-position: 50% 0px;
+    background-repeat: no-repeat;
+  }
+
+  .step.unchecked {
+    cursor: pointer;
+    margin: 16px;
+    height: 10px;
+    width: 10px;
+    background-color: var(--step-indicator);
+    border-radius: 10px;
+  }
+}
+
+
+.tutorial-page-indicator .step-indicator {
+  .step.current {
+    border: 2px solid var(--wallet-tutorial-step-indicator);
+  }
+  .step.checked {
+    background-image: var(--wallet-tutorial-check-circle);
+  }
+   .step.unchecked {
+    background-color: var(--wallet-tutorial-step-indicator);
+  }   
+}
+
+.doc-unavailable-alert {
+  opacity: 0.3;
+  font-size: 75%;
+}
+
+.agenda-options-radio-label {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.agenda-options-radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  background-color: var(--background-back-color);
+  border-radius: 50%;
+  border: 1px solid var(--white-border);
+  padding: 1px;
+}
+
+.agenda-options-radio-label:hover input ~ .checkmark {
+  opacity: 0.8;
+  border: 2px solid var(--input-color);
+  padding: 0;
+}
+
+.agenda-options-radio-label input:checked ~ .checkmark {
+  border: 2px solid var(--input-color);
+  padding: 0;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.agenda-options-radio-label input:checked ~ .checkmark::after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.agenda-options-radio-label .checkmark::after {
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--input-color);
+}
+
+@media screen and (max-width: 511px) {
+  .settings-save-button .key-blue-button {
+    margin-top: 0;
+    padding: 12px 30px 14px 30px;
+  }
+  .confirm-modal-toolbar .key-blue-button{
+    margin-top:0;
+    padding:12px 30px 14px 30px;
+  }
+
+  .danger-button {
+    margin-left: 145px;
+    margin-top: 18px;
+  }
+}
+
+@media screen and (max-width: 409px) {
+  .danger-button {
+    margin-left: 55px;
+    width: 122px;
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .danger-button {
+    margin-left: 55px;
+    width: 122px;
+  }
+
+  .key-blue-button {
+    position: absolute;
+    bottom: 18px;
+  }
+}
+.vertical-accordion-header {
+  cursor: pointer;
+  position: relative;
+}
+
+.vertical-accordion-arrow {
+  content: "";
+  background-image: var(--arrow-right-gray-icon);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+  width: 10px;
+  height: 14px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transition: transform 0.25s ease-in-out;
+  transform: rotate(-90deg);
+}
+
+.vertical-accordion-header:hover .vertical-accordion-arrow {
+  background-image: @arrow-right-blue-icon;
+
+  &.disabled {
+    background-image: var(--arrow-right-gray-icon);
+  }
+}
+
+.vertical-accordion.active .vertical-accordion-arrow {
+  transform: rotate(90deg);
+}
+
+.go-back-icon-button {
+  height: 12px;
+  width: 12px;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  background-image: var(--x-grey);
+  padding: 0px;
+}
+
+.voting-progress-indicator {
+  width: 150px;
+  height: 5px;
+  position: relative;
+  display: flex;
+  margin-top: 2px;
+  border: 1px solid var(--white-border);
+  margin-right: 20px;
+  border-radius: 10rem;
+
+  .voting-progress-yes {
+    background-color: var(--vote-yes-color);
+  }
+
+  .voting-progress-no {
+    background-color: var(--vote-no-color);
+  }
+}
+
+.rebroadcast-button-container {
+  width: 815px;
+}
+.rebroadcast-button {
+  background-image: @rebroadcastTransaction;
+  background-position: 20px 12px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  padding-left: 48px;
+  float: right;
+  margin-top: -22px;
+}
+
+@media screen and (max-width: 1179px) { 
+  .rebroadcast-button-container {
+    width: 770px;
+  }
+  
+  .voting-progress-indicator {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 1106px) { 
+  .rebroadcast-button-container {
+    width: 670px;
+  } 
+}
+
+@media screen and (max-width: 768px) {
+  .rebroadcast-button-container {
+    width: 375px;
+    text-align: center;
+    display: block;
+    margin-top: -22px;
+
+    .rebroadcast-button {
+      float: none;
+      padding: 12px 30px 14px 48px;
+      margin-top: 0;
+    }
+  }
+
+  .voting-progress-indicator {
+    width: 315px;
+  }
+}

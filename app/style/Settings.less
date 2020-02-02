@@ -1,0 +1,350 @@
+@import (reference) "./main.less";
+@import (reference) "./Icons.less";
+
+.settings-wrapper {
+  display: flex;
+  background: var(--background-back-color);
+  margin-bottom: 20px;
+  padding: 20px 40px;
+  justify-content: space-between;
+  width: 660px;
+
+  .language-select-input {
+    width: 150px;
+    margin-right: 0;
+    .language-label .flag {
+      margin: 5px 5px 0 0;
+    }
+  }
+  .settings-columns:nth-of-type(1){
+    width: 300px;
+    flex: inherit;
+  }
+  .settings-columns:nth-of-type(2){
+    width: 260px;
+    flex: inherit;
+  }
+}
+
+.settings-columns,
+.get-started-custom-privacy-settings {
+  flex: 50%;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:disabled + label,
+  input[type="radio"]:disabled + label {
+    display: inline-block;
+    background-color: var(--disabled-background-color);
+    border: 1px solid var(--disabled-color);
+  }
+
+  input[type="checkbox"]:checked:disabled + label,
+  input[type="radio"]:checked:disabled + label {
+    display: inline-block;
+    border: 1px solid var(--disabled-color);
+    background-color: var(--disabled-background-color);
+    background-image: @checkmarkGrey;
+    background-repeat: no-repeat;
+    background-size: 10px;
+  }
+
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    display: inline-block;
+    border: 1px solid var(--home-content-link);
+    background-color: none;
+  }
+
+  input[type="checkbox"]:checked + label,
+  input[type="radio"]:checked + label {
+    display: inline-block;
+    border: 1px solid var(--input-color);
+    background-color: none;
+    background-image: @checkmarkBlue;
+    background-repeat: no-repeat;
+    background-size: 10px;
+  }
+
+  input[type="radio"]:checked + label {
+    background-image: none;
+    position: relative;
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background-color: var(--input-color);
+      border-radius: 3px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+  }
+
+  input[type="radio"] + label {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background-position: 2px;
+  }
+
+  input[type="checkbox"] + label {
+    width: 12px;
+    height: 12px;
+    background-position: 1px;
+  }
+}
+
+.settings-wrapper .settings-label {
+  width: 140px;
+
+  .info-label,
+  .info-field-modal-button {
+    display: inline;
+  }
+  .info-field-modal-button {
+    float: initial;
+    background-image: var(--info-icon);
+    background-size: 16px;
+    margin-right: 5px;
+  }
+}
+
+.settings-column-title {
+  font-size: 19px;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+  line-height: 24px;
+}
+
+.settings-privacy,
+.settings-security,
+.settings-timezone {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.settings-privacy .settings-column-title,
+.settings-security .settings-column-title,
+.settings-timezone .settings-column-title {
+  text-align: left;
+}
+
+.settings-restart {
+  font-weight: bold;
+}
+
+.settings-row {
+  display: flex;
+  margin-bottom: 18px;
+  justify-content: flex-end;
+}
+
+.settings-row-checklist {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .settings-label {
+    text-align: left;
+    margin-left: 8px;
+    margin-right: 0;
+  }
+  .timezone-radio {
+    order: -1;
+    margin-top: 3px;
+    height: 12px;    
+  }
+}
+
+.settings-checklist-description {
+  font-style: italic;
+  text-align: left;
+  margin-left: 22px;
+  color: var(--settings-desc);
+  font-size: 11px;
+  line-height: 15px;
+  width: 175px;
+}
+
+.settings-label {
+  .inline-block-mixin;
+  margin-right: 14px;
+  text-align: right;
+  width: 125px;
+}
+
+.change-password-default-icon {
+  background: @change-password-default-icon no-repeat center;
+  background-color: var(--input-color);
+  background-size: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
+.change-password-disabled-icon,
+.change-password-loading {
+  background: @password-inactive-icon no-repeat center;
+  background-color: var(--disabled-background-color);
+  cursor: default;
+}
+
+.change-password-disabled-icon:hover,
+.change-password-loading:hover {
+  background-color: var(--disabled-background-color) !important;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.13) !important;
+}
+
+.change-password-default-icon:hover {
+  background-color: var(--input-color-hover);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+.settings-input {
+  .inline-block-mixin;
+
+  width: 150px;
+  margin-right: 0;
+}
+
+.settings-text-input {
+  width: 136px;
+  height: 23px;
+  padding: 0px 4px 1px 10px;
+}
+
+.settings-input-error {
+  width: 290px;
+  float: right;
+  height: 100%;
+  text-align: left;
+  color: var(--error-red);
+  padding-top: 5px;
+}
+
+.settings-action-buttons {
+  margin-top: 1em;
+}
+
+.settings-save-button-wrapper {
+  width:740px;  
+  text-align: right;
+}
+
+.settings-save-button {
+  .inline-block-mixin;
+
+  margin-right: 0;
+}
+
+.settings-close-wallet-button {
+  .inline-block-mixin;
+
+  float: right;
+}
+
+.settings-update-passphrase-button {
+  font-size: 13px;
+  float: left;
+  line-height: 23px;
+  button {
+    margin-left:0;
+    margin-right:10px;
+  }
+}
+
+.settings-update-passphrase-button span {
+  float: left;
+  margin-top: 1px;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.get-started-content-new-seed .settings-general {
+  max-width: 400px;
+}
+
+.privacy-checkbox {
+  margin-top: 2px;
+  order: -1;
+}
+
+
+@media screen and (max-width: 676px) {
+  .app-modal.about-modal,
+  .app-modal-reduced-bar.about-modal,
+  .app-modal-standalone.about-modal {
+    margin-left: 9px;
+  }
+}
+
+@media screen and (max-width: 1106px) {
+  .settings-wrapper {
+    width: 569px;
+
+    .settings-columns:nth-of-type(2){
+      width: 190px;
+    }    
+  }
+
+  .settings-save-button-wrapper {
+    width:649px;  
+  }  
+
+  .app-modal.about-modal,
+  .app-modal-reduced-bar.about-modal,
+  .app-modal-standalone.about-modal {
+    margin-top: 30px;
+  }
+
+  .settings-privacy .settings-column-title,
+  .settings-security .settings-column-title {
+    text-align: left;
+  }
+}
+
+.close-modal-button {
+  height: 23px;
+  background-color: var(--wallet-close-button-bg);
+  color: var(--wallet-close-button-text);
+  background-image: @close-wallet-icon;
+  background-repeat: no-repeat;
+  background-size: 13px;
+  width: 134px;
+  background-position: 10px 8px;
+  border-radius: 10px;
+  padding: 0;
+  padding-top: 6px;
+}
+
+.privacy-buttons {
+  text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  .settings-wrapper {
+    margin-top:0;
+    width: 330px;
+    padding: 20px ;
+    flex-direction: column;
+    
+    .settings-columns:nth-of-type(2){
+      width: 300px;
+    }    
+  }
+
+  .settings-save-button-wrapper {
+    width:355px;  
+    text-align: center;
+  } 
+}
