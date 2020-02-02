@@ -12,7 +12,7 @@ const propTypes = {
   onChangeTempSettings: PropTypes.func.isRequired
 };
 
-const AlreadySetMessage = () => <T id="settings.alreadySetFromCli" m="This was set as a command-line option when launching decrediton"/>;
+const AlreadySetMessage = () => <T id="settings.alreadySetFromCli" m="This was set as a command-line option when launching eacrediton"/>;
 
 // Do **not** add stuff that depends on the wallet here, as this is also used
 // for startup config.

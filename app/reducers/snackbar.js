@@ -214,7 +214,7 @@ const messages = defineMessages({
   },
   PUBLISHUNMINEDTRANSACTIONS_SUCCESS: {
     id: "send.publishUnminedTransactions.success",
-    defaultMessage: "Republished unmined transactions to the decred network."
+    defaultMessage: "Republished unmined transactions to the eacred network."
   },
   EXPORT_COMPLETED: {
     id: "export.completed",
@@ -366,7 +366,7 @@ const messages = defineMessages({
   },
   UPDATEVOTECHOICE_SUCCESS: {
     id: "governance.ntf.updateVoteChoiceSuccess",
-    defaultMessage: "Your vote has been casted with success!\n Thanks for participating in decred's governance"
+    defaultMessage: "Your vote has been casted with success!\n Thanks for participating in eacred's governance"
   }
 });
 

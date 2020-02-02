@@ -6,6 +6,6 @@ Es wird ausdrücklich davor gewarnt, den Seed in einer Computerdatei zu speicher
 
 Darüber hinaus kann das Speichern des Seeds in einer Computerdatei ohne Backup in einem physischen Medium (auf einem Papier aufgeschrieben und an einem sicheren Ort aufbewahrt) zum Verlust von Finanzmitteln führen, wenn die lokalen Wallet-Dateien beschädigt werden oder anderweitig nicht mehr verfügbar sind (aufgrund von Hardware-Fehlern oder anderen möglichen Problemen).
 
-Wenn Sie mehr über Seed-Sicherheit erfahren möchten, lesen Sie unsere FAQs, die Sie unter dem Link https://docs.decred.org/faq/wallets-and-seeds/ finden.
+Wenn Sie mehr über Seed-Sicherheit erfahren möchten, lesen Sie unsere FAQs, die Sie unter dem Link https://docs.eacred.org/faq/wallets-and-seeds/ finden.
 
 Wenn Sie sicher sind, dass Sie die Risiken verstanden haben und den Seed dennoch in die Zwischenablage kopieren wollen, tippen Sie bitte den unten angegeben Satz in das Feld ein und der Seed wird in Ihre Zwischenablage kopiert.

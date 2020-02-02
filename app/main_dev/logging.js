@@ -4,8 +4,8 @@ import { MAX_LOG_LENGTH } from "constants";
 import { getAppDataDirectory } from "./paths";
 import os from "os";
 
-let dcrdLogs = Buffer.from("");
-let dcrwalletLogs = Buffer.from("");
+let eacrdLogs = Buffer.from("");
+let eacrwalletLogs = Buffer.from("");
 let dcrlndLogs = Buffer.from("");
 
 let logger;
@@ -17,7 +17,7 @@ const pad = (s, n) => {
 };
 
 // logTimestamp is a function to format current time as a string using a
-// format compatible to dcrd/dcrwallet logs. This function is meant to be
+// format compatible to eacrd/eacrwallet logs. This function is meant to be
 // installed in the winston loggers.
 const logTimestamp = () => {
   let date = new Date();
@@ -32,7 +32,7 @@ const logTimestamp = () => {
 };
 
 // logLevelsPrintable are the printable strings for each log level, compatible
-// with the dcrd/dcrwallet logs.
+// with the eacrd/eacrwallet logs.
 const logLevelsPrintable = {
   "error": "ERR",
   "warn": "WRN",
@@ -57,7 +57,7 @@ const logFormatterColorized = (opts) => {
 };
 
 // createLogger creates the main app logger. This stores all logs into the
-// decrediton app data dir and sends to the console when debug == true.
+// eacrediton app data dir and sends to the console when debug == true.
 // This is meant to be called from the ipcMain thread.
 export function createLogger(debug) {
   if (logger)
@@ -66,7 +66,7 @@ export function createLogger(debug) {
     transports: [
       new (winston.transports.File)({
         json: false,
-        filename: path.join(getAppDataDirectory(), "decrediton.log"),
+        filename: path.join(getAppDataDirectory(), "eacrediton.log"),
         timestamp: logTimestamp,
         formatter: logFormatter
       })
@@ -93,21 +93,21 @@ const AddToLog = (destIO, destLogBuffer, data, debug) => {
   return Buffer.concat([ destLogBuffer, dataBuffer ]);
 };
 
-export const AddToDcrdLog = (destIO, data, debug) => {
-  dcrdLogs = AddToLog(destIO, dcrdLogs, data, debug);
+export const AddToEcrdLog = (destIO, data, debug) => {
+  eacrdLogs = AddToLog(destIO, eacrdLogs, data, debug);
 };
 
-export const AddToDcrwalletLog = (destIO, data, debug) => {
-  dcrwalletLogs = AddToLog(destIO, dcrwalletLogs, data, debug);
+export const AddToEacrwalletLog = (destIO, data, debug) => {
+  eacrwalletLogs = AddToLog(destIO, eacrwalletLogs, data, debug);
 };
 
 export const AddToDcrlndLog = (destIO, data, debug) => {
   dcrlndLogs = AddToLog(destIO, dcrlndLogs, data, debug);
 };
 
-export const GetDcrdLogs = () => dcrdLogs;
+export const GetEcrdLogs = () => eacrdLogs;
 
-export const GetDcrwalletLogs = () => dcrwalletLogs;
+export const GetEacrwalletLogs = () => eacrwalletLogs;
 
 export const GetDcrlndLogs = () => dcrlndLogs;
 
@@ -135,8 +135,8 @@ export function lastPanicLine(log) {
   return lastLineBuff;
 }
 
-export function ClearDcrwalletLogs() {
-  dcrwalletLogs = Buffer.from("");
+export function ClearEacrwalletLogs() {
+  eacrwalletLogs = Buffer.from("");
   dcrlndLogs = Buffer.from("");
 }
 

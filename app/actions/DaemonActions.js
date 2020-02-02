@@ -60,7 +60,7 @@ export const BACK_TO_CREDENTIALS = "BACK_TO_CREDENTIALS";
 
 export const checkDecreditonVersion = () => (dispatch, getState) =>{
   const detectedVersion = getState().daemon.appVersion;
-  const releaseApiURL = "https://api.github.com/repos/decred/decrediton/releases";
+  const releaseApiURL = "https://api.github.com/repos/eacred/eacrediton/releases";
   axios.get(releaseApiURL, { timeout: 5000 })
     .then(function (response) {
       const currentVersion = response.data[0].tag_name.split("v")[1];
@@ -71,7 +71,7 @@ export const checkDecreditonVersion = () => (dispatch, getState) =>{
       }
     })
     .catch(function (error) {
-      console.log("Unable to check latest decrediton release version.", error);
+      console.log("Unable to check latest eacrediton release version.", error);
     });
 };
 
@@ -374,7 +374,7 @@ export const connectDaemon = (rpcCreds) => (dispatch, getState) => {
     const creds = rpcCreds ? rpcCreds : credentials;
     const timeNow = new Date();
     const timeElapsed = timeNow - timeBeforeConnect;
-    // We do not consider timeout if has a warning as it probably means dcrd
+    // We do not consider timeout if has a warning as it probably means eacrd
     // is reindexing or upgrading its database.
     if (!daemonWarning && (timeStart === 0 && timeElapsed >= TIME_TO_TIMEOUT)) {
       dispatch({ type: CONNECTDAEMON_FAILURE, daemonTimeout: true, error: "timeout exceed" });
@@ -458,8 +458,8 @@ export const syncDaemon = () => (dispatch, getState) => {
   updateBlockCount();
 };
 
-export const getDcrdLogs = () => {
-  wallet.getDcrdLogs()
+export const getEcrdLogs = () => {
+  wallet.getEcrdLogs()
     .then(logs => {
       return(logs);
     }).catch(
@@ -469,8 +469,8 @@ export const getDcrdLogs = () => {
       });
 };
 
-export const getDcrwalletLogs = () => {
-  wallet.getDcrwalletLogs()
+export const getEacrwalletLogs = () => {
+  wallet.getEacrwalletLogs()
     .then(logs => {
       return(logs);
     }).catch(

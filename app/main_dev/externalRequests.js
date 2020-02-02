@@ -9,7 +9,7 @@ import { session } from "electron";
 import { isRegExp } from "util";
 import { getGlobalCfg } from "config";
 import { POLITEIA_URL_TESTNET, POLITEIA_URL_MAINNET } from "../middleware/politeiaapi";
-import { DCRDATA_URL_TESTNET, DCRDATA_URL_MAINNET } from "../middleware/dcrdataapi";
+import { DCRDATA_URL_TESTNET, DCRDATA_URL_MAINNET } from "../middleware/eacrdataapi";
 
 export const EXTERNALREQUEST_NETWORK_STATUS = "EXTERNALREQUEST_NETWORK_STATUS";
 export const EXTERNALREQUEST_STAKEPOOL_LISTING = "EXTERNALREQUEST_STAKEPOOL_LISTING";
@@ -88,14 +88,14 @@ export const allowExternalRequest = (externalReqType) => {
 
   switch (externalReqType) {
   case EXTERNALREQUEST_NETWORK_STATUS:
-    addAllowedURL("https://testnet.decred.org/api/status");
-    addAllowedURL("https://mainnet.decred.org/api/status");
+    addAllowedURL("https://testnet.eacred.org/api/status");
+    addAllowedURL("https://mainnet.eacred.org/api/status");
     break;
   case EXTERNALREQUEST_STAKEPOOL_LISTING:
-    addAllowedURL(/^https:\/\/api\.decred\.org\/\?c=gsd$/);
+    addAllowedURL(/^https:\/\/api\.eacred\.org\/\?c=gsd$/);
     break;
   case EXTERNALREQUEST_UPDATE_CHECK:
-    addAllowedURL("https://api.github.com/repos/decred/decrediton/releases");
+    addAllowedURL("https://api.github.com/repos/eacred/eacrediton/releases");
     break;
   case EXTERNALREQUEST_POLITEIA:
     addAllowedURL(POLITEIA_URL_TESTNET);

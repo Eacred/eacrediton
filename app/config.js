@@ -2,7 +2,7 @@ import fs from "fs";
 import Store from "electron-store";
 import ini from "ini";
 import { stakePoolInfo } from "./middleware/stakepoolapi";
-import { getAppDataDirectory, getGlobalCfgPath, dcrdCfg, getWalletPath, dcrwalletCfg, getDcrdRpcCert } from "./main_dev/paths";
+import { getAppDataDirectory, getGlobalCfgPath, eacrdCfg, getWalletPath, eacrwalletCfg, getEcrdRpcCert } from "./main_dev/paths";
 import * as cfgConstants from "constants/config";
 import { DCR  } from "constants";
 
@@ -139,7 +139,7 @@ export function validateGlobalCfgFile() {
 
 export function getWalletCert(certPath) {
   var cert;
-  certPath = getDcrdRpcCert(certPath);
+  certPath = getEcrdRpcCert(certPath);
   try {
     cert = fs.readFileSync(certPath);
   } catch (err) {
@@ -155,18 +155,18 @@ export function getWalletCert(certPath) {
   return(cert);
 }
 
-export function readDcrdConfig(testnet) {
+export function readEcrdConfig(testnet) {
   try {
     let readCfg;
     let newCfg = {};
     newCfg.rpc_host = "127.0.0.1";
     newCfg.rpc_port = testnet ? "19109" : "9109";
 
-    if (fs.existsSync(dcrdCfg(getAppDataDirectory()))) {
-      readCfg = ini.parse(Buffer.from(fs.readFileSync(dcrdCfg(getAppDataDirectory()))).toString());
+    if (fs.existsSync(eacrdCfg(getAppDataDirectory()))) {
+      readCfg = ini.parse(Buffer.from(fs.readFileSync(eacrdCfg(getAppDataDirectory()))).toString());
     } else {
-      var newCfgPath = createTempDcrdConf(testnet);
-      readCfg = ini.parse(Buffer.from(fs.readFileSync(dcrdCfg(newCfgPath))).toString());
+      var newCfgPath = createTempEcrdConf(testnet);
+      readCfg = ini.parse(Buffer.from(fs.readFileSync(eacrdCfg(newCfgPath))).toString());
     }
 
     let userFound, passFound = false;
@@ -215,12 +215,12 @@ export function readDcrdConfig(testnet) {
   }
 }
 
-export function getDcrdCert(dcrdCertPath) {
-  if(dcrdCertPath)
-    if(fs.existsSync(dcrdCertPath))
-      return fs.readFileSync(dcrdCertPath);
+export function getEcrdCert(eacrdCertPath) {
+  if(eacrdCertPath)
+    if(fs.existsSync(eacrdCertPath))
+      return fs.readFileSync(eacrdCertPath);
 
-  var certPath = getDcrdRpcCert();
+  var certPath = getEcrdRpcCert();
 
   var cert = fs.readFileSync(certPath);
   return(cert);
@@ -300,12 +300,12 @@ function makeRandomString(length) {
   return text;
 }
 
-export function createTempDcrdConf(testnet) {
-  var dcrdConf = {};
-  if (!fs.existsSync(dcrdCfg(getAppDataDirectory()))) {
+export function createTempEcrdConf(testnet) {
+  var eacrdConf = {};
+  if (!fs.existsSync(eacrdCfg(getAppDataDirectory()))) {
     const port = testnet ? "19109" : "9109";
 
-    dcrdConf = {
+    eacrdConf = {
       "Application Options":
       {
         rpcuser: makeRandomString(10),
@@ -313,7 +313,7 @@ export function createTempDcrdConf(testnet) {
         rpclisten: `127.0.0.1:${port}`
       }
     };
-    fs.writeFileSync(dcrdCfg(getAppDataDirectory()), ini.stringify(dcrdConf));
+    fs.writeFileSync(eacrdCfg(getAppDataDirectory()), ini.stringify(eacrdConf));
   }
   return getAppDataDirectory();
 }
@@ -332,5 +332,5 @@ export function newWalletConfigCreation(testnet, walletPath) {
       nolegacyrpc: "1"
     }
   };
-  fs.writeFileSync(dcrwalletCfg(getWalletPath(testnet, walletPath)), ini.stringify(dcrwConf));
+  fs.writeFileSync(eacrwalletCfg(getWalletPath(testnet, walletPath)), ini.stringify(dcrwConf));
 }

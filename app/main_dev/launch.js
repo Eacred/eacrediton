@@ -1,7 +1,7 @@
-import { dcrwalletCfg, getWalletPath, getExecutablePath, dcrdCfg, getAppDataDirectory, getDcrdRpcCert, getDcrdPath } from "./paths";
-import { getWalletCfg, readDcrdConfig } from "config";
-import { createLogger, AddToDcrdLog, AddToDcrwalletLog, AddToDcrlndLog, GetDcrdLogs,
-  GetDcrwalletLogs, lastErrorLine, lastPanicLine, ClearDcrwalletLogs, CheckDaemonLogs } from "./logging";
+import { eacrwalletCfg, getWalletPath, getExecutablePath, eacrdCfg, getAppDataDirectory, getEcrdRpcCert, getEcrdPath } from "./paths";
+import { getWalletCfg, readEcrdConfig } from "config";
+import { createLogger, AddToEcrdLog, AddToEacrwalletLog, AddToDcrlndLog, GetEcrdLogs,
+  GetEacrwalletLogs, lastErrorLine, lastPanicLine, ClearEacrwalletLogs, CheckDaemonLogs } from "./logging";
 import parseArgs from "minimist";
 import { OPTIONS } from "constants";
 import os from "os";
@@ -19,21 +19,21 @@ const argv = parseArgs(process.argv.slice(1), OPTIONS);
 const debug = argv.debug || process.env.NODE_ENV === "development";
 const logger = createLogger(debug);
 
-let dcrdPID, dcrwPID, dcrlndPID;
+let eacrdPID, dcrwPID, dcrlndPID;
 
 // windows-only stuff
-let dcrwPipeRx, dcrwPipeTx, dcrdPipeRx, dcrwTxStream;
+let dcrwPipeRx, dcrwPipeTx, eacrdPipeRx, dcrwTxStream;
 
 let dcrwPort;
 let rpcuser, rpcpass, rpccert, rpchost, rpcport;
 let dcrlndCreds;
 
-let dcrdSocket = null;
+let eacrdSocket = null;
 
 function closeClis() {
   // shutdown daemon and wallet.
   // Don't try to close if not running.
-  if(dcrdPID && dcrdPID !== -1)
+  if(eacrdPID && eacrdPID !== -1)
     closeDCRD();
   if(dcrwPID && dcrwPID !== -1)
     closeDCRW();
@@ -42,21 +42,21 @@ function closeClis() {
 }
 
 export function closeDCRD() {
-  if (dcrdPID === -1) {
-    // process is not started by decrediton
+  if (eacrdPID === -1) {
+    // process is not started by eacrediton
     return true;
   }
-  if (isRunning(dcrdPID) && os.platform() != "win32") {
-    logger.log("info", "Sending SIGINT to dcrd at pid:" + dcrdPID);
-    process.kill(dcrdPID, "SIGINT");
-    dcrdPID = null;
-  } else if (require("is-running")(dcrdPID)) {
+  if (isRunning(eacrdPID) && os.platform() != "win32") {
+    logger.log("info", "Sending SIGINT to eacrd at pid:" + eacrdPID);
+    process.kill(eacrdPID, "SIGINT");
+    eacrdPID = null;
+  } else if (require("is-running")(eacrdPID)) {
     try {
       const win32ipc = require("../node_modules/win32ipc/build/Release/win32ipc.node");
-      win32ipc.closePipe(dcrdPipeRx);
-      dcrdPID = null;
+      win32ipc.closePipe(eacrdPipeRx);
+      eacrdPID = null;
     } catch (e) {
-      logger.log("error", "Error closing dcrd piperx: " + e);
+      logger.log("error", "Error closing eacrd piperx: " + e);
       return false;
     }
   }
@@ -65,12 +65,12 @@ export function closeDCRD() {
 
 export const closeDCRW = () => {
   if (dcrwPID === -1) {
-    // process is not started by decrediton
+    // process is not started by eacrediton
     return true;
   }
   try {
     if (isRunning(dcrwPID) && os.platform() != "win32") {
-      logger.log("info", "Sending SIGINT to dcrwallet at pid:" + dcrwPID);
+      logger.log("info", "Sending SIGINT to eacrwallet at pid:" + dcrwPID);
       process.kill(dcrwPID, "SIGINT");
     } else if (isRunning(dcrwPID)) {
       try {
@@ -79,7 +79,7 @@ export const closeDCRW = () => {
         win32ipc.closePipe(dcrwPipeTx);
         win32ipc.closePipe(dcrwPipeRx);
       } catch (e) {
-        logger.log("error", "Error closing dcrwallet piperx: " + e);
+        logger.log("error", "Error closing eacrwallet piperx: " + e);
       }
     }
     dcrwPID = null;
@@ -100,7 +100,7 @@ const rpcStopDcrlnd = async (creds) => {
 
 export const closeDcrlnd = () => {
   if (dcrlndPID === -1) {
-    // process is not started by decrediton
+    // process is not started by eacrediton
     return true;
   }
   if (isRunning(dcrlndPID) && os.platform() != "win32") {
@@ -138,10 +138,10 @@ export async function cleanShutdown(mainWindow, app) {
     // Sent shutdown message again as we have seen it missed in the past if they
     // are still running.
     setTimeout(function () { closeClis(); }, cliShutDownPause * 1000);
-    logger.log("info", "Closing decrediton.");
+    logger.log("info", "Closing eacrediton.");
 
     let shutdownTimer = setInterval(function () {
-      const stillRunning = dcrdPID !== -1 && (isRunning(dcrdPID) && os.platform() != "win32");
+      const stillRunning = eacrdPID !== -1 && (isRunning(eacrdPID) && os.platform() != "win32");
 
       if (!stillRunning) {
         logger.log("info", "Final shutdown pause. Quitting app.");
@@ -172,11 +172,11 @@ export const launchDCRD = (params, testnet, reactIPC) => new Promise((resolve,re
     rpccert = rpcCreds.rpc_cert;
     rpchost = rpcCreds.rpc_host;
     rpcport = rpcCreds.rpc_port;
-    dcrdPID = -1;
-    AddToDcrdLog(process.stdout, "dcrd is connected as remote", debug);
+    eacrdPID = -1;
+    AddToEcrdLog(process.stdout, "eacrd is connected as remote", debug);
     return resolve(rpcCreds);
   }
-  if (dcrdPID === -1) {
+  if (eacrdPID === -1) {
     const creds = {
       rpc_user: rpcuser,
       rpc_pass: rpcpass,
@@ -187,12 +187,12 @@ export const launchDCRD = (params, testnet, reactIPC) => new Promise((resolve,re
     return resolve(creds);
   }
 
-  if (!appdata) appdata = getDcrdPath();
+  if (!appdata) appdata = getEcrdPath();
 
   let args = [ "--nolisten" ];
-  const newConfig = readDcrdConfig(testnet);
+  const newConfig = readEcrdConfig(testnet);
 
-  args.push(`--configfile=${dcrdCfg(getAppDataDirectory())}`);
+  args.push(`--configfile=${eacrdCfg(getAppDataDirectory())}`);
   args.push(`--appdata=${appdata}`);
 
   if (testnet) {
@@ -202,74 +202,74 @@ export const launchDCRD = (params, testnet, reactIPC) => new Promise((resolve,re
 
   rpcuser = newConfig.rpc_user;
   rpcpass = newConfig.rpc_pass;
-  newConfig.rpc_cert = getDcrdRpcCert(appdata);
+  newConfig.rpc_cert = getEcrdRpcCert(appdata);
   rpccert = newConfig.rpc_cert;
   rpchost = newConfig.rpc_host;
   rpcport = newConfig.rpc_port;
 
-  const dcrdExe = getExecutablePath("dcrd", argv.custombinpath);
-  if (!fs.existsSync(dcrdExe)) {
-    logger.log("error", "The dcrd executable does not exist. Expected to find it at " + dcrdExe);
+  const eacrdExe = getExecutablePath("eacrd", argv.custombinpath);
+  if (!fs.existsSync(eacrdExe)) {
+    logger.log("error", "The eacrd executable does not exist. Expected to find it at " + eacrdExe);
     return;
   }
 
   if (os.platform() == "win32") {
     try {
       const win32ipc = require("../node_modules/win32ipc/build/Release/win32ipc.node");
-      dcrdPipeRx = win32ipc.createPipe("out");
-      args.push(util.format("--piperx=%d", dcrdPipeRx.readEnd));
+      eacrdPipeRx = win32ipc.createPipe("out");
+      args.push(util.format("--piperx=%d", eacrdPipeRx.readEnd));
     } catch (e) {
-      logger.log("error", "can't find proper module to launch dcrd: " + e);
+      logger.log("error", "can't find proper module to launch eacrd: " + e);
     }
   }
 
-  logger.log("info", `Starting ${dcrdExe} with ${args}`);
+  logger.log("info", `Starting ${eacrdExe} with ${args}`);
 
-  const dcrd = spawn(dcrdExe, args, {
+  const eacrd = spawn(eacrdExe, args, {
     detached: os.platform() === "win32",
     stdio: [ "ignore", "pipe", "pipe" ]
   });
 
-  dcrd.on("error", function (err) {
+  eacrd.on("error", function (err) {
     reject(err);
   });
 
-  dcrd.on("close", (code) => {
+  eacrd.on("close", (code) => {
     if (code !== 0) {
-      let lastDcrdErr = lastErrorLine(GetDcrdLogs());
-      if (!lastDcrdErr || lastDcrdErr === "") {
-        lastDcrdErr = lastPanicLine(GetDcrdLogs());
+      let lastEcrdErr = lastErrorLine(GetEcrdLogs());
+      if (!lastEcrdErr || lastEcrdErr === "") {
+        lastEcrdErr = lastPanicLine(GetEcrdLogs());
       }
-      logger.log("error", "dcrd closed due to an error: ", lastDcrdErr);
-      return reject(lastDcrdErr);
+      logger.log("error", "eacrd closed due to an error: ", lastEcrdErr);
+      return reject(lastEcrdErr);
     }
 
-    logger.log("info", `dcrd exited with code ${code}`);
+    logger.log("info", `eacrd exited with code ${code}`);
   });
 
-  dcrd.stdout.on("data", (data) => {
-    AddToDcrdLog(process.stdout, data, debug);
+  eacrd.stdout.on("data", (data) => {
+    AddToEcrdLog(process.stdout, data, debug);
     if (CheckDaemonLogs(data.toString("utf-8"))) {
       reactIPC.send("warning-received", true, data.toString("utf-8"));
     }
     resolve(data.toString("utf-8"));
   });
 
-  dcrd.stderr.on("data", (data) => {
-    AddToDcrdLog(process.stderr, data, debug);
+  eacrd.stderr.on("data", (data) => {
+    AddToEcrdLog(process.stderr, data, debug);
     reject(data.toString("utf-8"));
   });
 
-  newConfig.pid = dcrd.pid;
-  dcrdPID = dcrd.pid;
-  logger.log("info", "dcrd started with pid:" + newConfig.pid);
+  newConfig.pid = eacrd.pid;
+  eacrdPID = eacrd.pid;
+  logger.log("info", "eacrd started with pid:" + newConfig.pid);
 
-  dcrd.unref();
+  eacrd.unref();
   return resolve(newConfig);
 });
 
-// DecodeDaemonIPCData decodes messages from an IPC message received from dcrd/
-// dcrwallet using their internal IPC protocol.
+// DecodeDaemonIPCData decodes messages from an IPC message received from eacrd/
+// eacrwallet using their internal IPC protocol.
 // NOTE: very simple impl for the moment, will break if messages get split
 // between data calls.
 const DecodeDaemonIPCData = (data, cb) => {
@@ -288,22 +288,22 @@ const DecodeDaemonIPCData = (data, cb) => {
 };
 
 export const launchDCRWallet = (mainWindow, daemonIsAdvanced, walletPath, testnet, reactIPC) => {
-  let args = [ "--configfile=" + dcrwalletCfg(getWalletPath(testnet, walletPath)) ];
+  let args = [ "--configfile=" + eacrwalletCfg(getWalletPath(testnet, walletPath)) ];
 
   const cfg = getWalletCfg(testnet, walletPath);
 
   args.push("--gaplimit=" + cfg.get("gaplimit"));
 
-  const dcrwExe = getExecutablePath("dcrwallet", argv.custombinpath);
+  const dcrwExe = getExecutablePath("eacrwallet", argv.custombinpath);
   if (!fs.existsSync(dcrwExe)) {
-    logger.log("error", "The dcrwallet executable does not exist. Expected to find it at " + dcrwExe);
+    logger.log("error", "The eacrwallet executable does not exist. Expected to find it at " + dcrwExe);
     return;
   }
 
   const notifyGrpcPort = (port) => {
     dcrwPort = port;
     logger.log("info", "wallet grpc running on port", port);
-    mainWindow.webContents.send("dcrwallet-port", port);
+    mainWindow.webContents.send("eacrwallet-port", port);
   };
 
   const decodeDcrwIPC = data => DecodeDaemonIPCData(data, (mtype, payload) => {
@@ -313,7 +313,7 @@ export const launchDCRWallet = (mainWindow, daemonIsAdvanced, walletPath, testne
       if (matches) {
         notifyGrpcPort(matches[1]);
       } else {
-        logger.log("error", "GRPC port not found on IPC channel to dcrwallet: " + intf);
+        logger.log("error", "GRPC port not found on IPC channel to eacrwallet: " + intf);
       }
     }
   });
@@ -333,9 +333,9 @@ export const launchDCRWallet = (mainWindow, daemonIsAdvanced, walletPath, testne
       dcrwTxStream = fs.createReadStream("", { fd: pipeTxReadFd });
       dcrwTxStream.on("data", decodeDcrwIPC);
       dcrwTxStream.on("error", (e) => e && e.code && e.code != "EOF" && logger.log("error", "tx stream error", e));
-      dcrwTxStream.on("close", () => logger.log("info", "dcrwallet tx stream closed"));
+      dcrwTxStream.on("close", () => logger.log("info", "eacrwallet tx stream closed"));
     } catch (e) {
-      logger.log("error", "can't find proper module to launch dcrwallet: " + e);
+      logger.log("error", "can't find proper module to launch eacrwallet: " + e);
     }
   } else {
     args.push("--rpclistenerevents");
@@ -349,48 +349,48 @@ export const launchDCRWallet = (mainWindow, daemonIsAdvanced, walletPath, testne
 
   logger.log("info", `Starting ${dcrwExe} with ${args}`);
 
-  const dcrwallet = spawn(dcrwExe, args, {
+  const eacrwallet = spawn(dcrwExe, args, {
     detached: os.platform() == "win32",
     stdio: [ "ignore", "pipe", "pipe", "ignore", "pipe" ]
   });
 
   if (os.platform() !== "win32") {
-    dcrwallet.stdio[4].on("data", decodeDcrwIPC);
+    eacrwallet.stdio[4].on("data", decodeDcrwIPC);
   }
 
-  dcrwallet.on("error", function (err) {
-    logger.log("error", "Error running dcrwallet.  Check logs and restart! " + err);
-    mainWindow.webContents.executeJavaScript("alert(\"Error running dcrwallet.  Check logs and restart! " + err + "\");");
+  eacrwallet.on("error", function (err) {
+    logger.log("error", "Error running eacrwallet.  Check logs and restart! " + err);
+    mainWindow.webContents.executeJavaScript("alert(\"Error running eacrwallet.  Check logs and restart! " + err + "\");");
     mainWindow.webContents.executeJavaScript("window.close();");
   });
 
-  dcrwallet.on("close", (code) => {
+  eacrwallet.on("close", (code) => {
     if (daemonIsAdvanced)
       return;
     if (code !== 0) {
-      var lastDcrwalletErr = lastErrorLine(GetDcrwalletLogs());
-      if (!lastDcrwalletErr || lastDcrwalletErr == "") {
-        lastDcrwalletErr = lastPanicLine(GetDcrwalletLogs());
+      var lastEacrwalletErr = lastErrorLine(GetEacrwalletLogs());
+      if (!lastEacrwalletErr || lastEacrwalletErr == "") {
+        lastEacrwalletErr = lastPanicLine(GetEacrwalletLogs());
       }
-      logger.log("error", "dcrwallet closed due to an error: ", lastDcrwalletErr);
-      reactIPC.send("error-received", false, lastDcrwalletErr);
+      logger.log("error", "eacrwallet closed due to an error: ", lastEacrwalletErr);
+      reactIPC.send("error-received", false, lastEacrwalletErr);
     } else {
-      logger.log("info", `dcrwallet exited with code ${code}`);
+      logger.log("info", `eacrwallet exited with code ${code}`);
     }
-    ClearDcrwalletLogs();
+    ClearEacrwalletLogs();
   });
 
-  const addStdoutToLogListener = (data) => AddToDcrwalletLog(process.stdout, data, debug);
+  const addStdoutToLogListener = (data) => AddToEacrwalletLog(process.stdout, data, debug);
 
-  dcrwallet.stdout.on("data", addStdoutToLogListener);
-  dcrwallet.stderr.on("data", (data) => {
-    AddToDcrwalletLog(process.stderr, data, debug);
+  eacrwallet.stdout.on("data", addStdoutToLogListener);
+  eacrwallet.stderr.on("data", (data) => {
+    AddToEacrwalletLog(process.stderr, data, debug);
   });
 
-  dcrwPID = dcrwallet.pid;
-  logger.log("info", "dcrwallet started with pid:" + dcrwPID);
+  dcrwPID = eacrwallet.pid;
+  logger.log("info", "eacrwallet started with pid:" + dcrwPID);
 
-  dcrwallet.unref();
+  eacrwallet.unref();
   return dcrwPID;
 };
 
@@ -413,19 +413,19 @@ export const launchDCRLnd = (walletAccount, walletPort, rpcCreds, walletPath,
     "--tlskeypath="+path.join(dcrlndRoot, "tls.key"),
     "--configfile="+path.join(dcrlndRoot,"dcrlnd.conf"),
     "--adminmacaroonpath="+adminMacaroonPath,
-    "--decred.node=dcrd",
-    "--dcrd.rpchost="+rpcCreds.rpc_host+":"+rpcCreds.rpc_port,
-    "--dcrd.rpcuser="+rpcCreds.rpc_user,
-    "--dcrd.rpcpass="+rpcCreds.rpc_pass,
-    "--dcrwallet.grpchost=localhost:"+walletPort,
-    "--dcrwallet.certpath="+path.join(walletPath, "rpc.cert"),
-    "--dcrwallet.accountnumber="+walletAccount
+    "--eacred.node=eacrd",
+    "--eacrd.rpchost="+rpcCreds.rpc_host+":"+rpcCreds.rpc_port,
+    "--eacrd.rpcuser="+rpcCreds.rpc_user,
+    "--eacrd.rpcpass="+rpcCreds.rpc_pass,
+    "--eacrwallet.grpchost=localhost:"+walletPort,
+    "--eacrwallet.certpath="+path.join(walletPath, "rpc.cert"),
+    "--eacrwallet.accountnumber="+walletAccount
   ];
 
   if (testnet) {
-    args.push("--decred.testnet");
+    args.push("--eacred.testnet");
   } else {
-    args.push("--decred.mainnet");
+    args.push("--eacred.mainnet");
   }
 
   if (autopilotEnabled) {
@@ -442,10 +442,10 @@ export const launchDCRLnd = (walletAccount, walletPort, rpcCreds, walletPath,
   if (os.platform() == "win32") {
     try {
       const win32ipc = require("../node_modules/win32ipc/build/Release/win32ipc.node");
-      dcrdPipeRx = win32ipc.createPipe("out");
-      args.push(util.format("--piperx=%d", dcrdPipeRx.readEnd));
+      eacrdPipeRx = win32ipc.createPipe("out");
+      args.push(util.format("--piperx=%d", eacrdPipeRx.readEnd));
     } catch (e) {
-      logger.log("error", "can't find proper module to launch dcrd: " + e);
+      logger.log("error", "can't find proper module to launch eacrd: " + e);
     }
   }
   */
@@ -465,12 +465,12 @@ export const launchDCRLnd = (walletAccount, walletPort, rpcCreds, walletPath,
   dcrlnd.on("close", (code) => {
     /*
     if (code !== 0) {
-      let lastDcrdErr = lastErrorLine(GetDcrdLogs());
-      if (!lastDcrdErr || lastDcrdErr === "") {
-        lastDcrdErr = lastPanicLine(GetDcrdLogs());
+      let lastEcrdErr = lastErrorLine(GetEcrdLogs());
+      if (!lastEcrdErr || lastEcrdErr === "") {
+        lastEcrdErr = lastPanicLine(GetEcrdLogs());
       }
-      logger.log("error", "dcrd closed due to an error: ", lastDcrdErr);
-      return reject(lastDcrdErr);
+      logger.log("error", "eacrd closed due to an error: ", lastEcrdErr);
+      return reject(lastEcrdErr);
     }
     */
 
@@ -504,7 +504,7 @@ export const launchDCRLnd = (walletAccount, walletPort, rpcCreds, walletPath,
 
 export const GetDcrwPort = () => dcrwPort;
 
-export const GetDcrdPID = () => dcrdPID;
+export const GetEcrdPID = () => eacrdPID;
 
 export const GetDcrwPID = () => dcrwPID;
 
@@ -513,16 +513,16 @@ export const GetDcrlndCreds = () => dcrlndCreds;
 
 export const readExesVersion = (app, grpcVersions) => {
   let args = [ "--version" ];
-  let exes = [ "dcrd", "dcrwallet", "dcrctl" ];
+  let exes = [ "eacrd", "eacrwallet", "dcrctl" ];
   let versions = {
     grpc: grpcVersions,
-    decrediton: app.getVersion()
+    eacrediton: app.getVersion()
   };
 
   for (let exe of exes) {
-    let exePath = getExecutablePath("dcrd", argv.custombinpath);
+    let exePath = getExecutablePath("eacrd", argv.custombinpath);
     if (!fs.existsSync(exePath)) {
-      logger.log("error", "The dcrd executable does not exist. Expected to find it at " + exePath);
+      logger.log("error", "The eacrd executable does not exist. Expected to find it at " + exePath);
     }
 
     let proc = spawn(exePath, args, { encoding: "utf8" });
@@ -548,7 +548,7 @@ export const readExesVersion = (app, grpcVersions) => {
   return versions;
 };
 
-// connectDaemon starts a new rpc connection to dcrd
+// connectDaemon starts a new rpc connection to eacrd
 export const connectRpcDaemon = async (mainWindow, rpcCreds) => {
   const rpc_host = rpcCreds ? rpcCreds.rpc_host : rpchost;
   const rpc_port = rpcCreds ? rpcCreds.rpc_port : rpcport;
@@ -567,10 +567,10 @@ export const connectRpcDaemon = async (mainWindow, rpcCreds) => {
 
   var cert = fs.readFileSync(rpc_cert);
   const url = `${rpc_host}:${rpc_port}`;
-  if (dcrdSocket && dcrdSocket.readyState === dcrdSocket.OPEN) {
+  if (eacrdSocket && eacrdSocket.readyState === eacrdSocket.OPEN) {
     return mainWindow.webContents.send("connectRpcDaemon-response", { connected: true });
   }
-  dcrdSocket = new webSocket(`wss://${url}/ws`, {
+  eacrdSocket = new webSocket(`wss://${url}/ws`, {
     headers: {
       "Authorization": "Basic "+Buffer.from(rpc_user+":"+rpc_pass).toString("base64")
     },
@@ -578,15 +578,15 @@ export const connectRpcDaemon = async (mainWindow, rpcCreds) => {
     ecdhCurve: "secp521r1",
     ca: [ cert ]
   });
-  dcrdSocket.on("open", function() {
-    logger.log("info","decrediton has connected to dcrd instance");
+  eacrdSocket.on("open", function() {
+    logger.log("info","eacrediton has connected to eacrd instance");
     return mainWindow.webContents.send("connectRpcDaemon-response", { connected: true });
   });
-  dcrdSocket.on("error", function(error) {
+  eacrdSocket.on("error", function(error) {
     logger.log("error",`Error: ${error}`);
     return mainWindow.webContents.send("connectRpcDaemon-response", { connected: false, error });
   });
-  dcrdSocket.on("message", function(data) {
+  eacrdSocket.on("message", function(data) {
     const parsedData = JSON.parse(data);
     const id = parsedData ? parsedData.id : "";
     switch (id) {
@@ -602,16 +602,16 @@ export const connectRpcDaemon = async (mainWindow, rpcCreds) => {
     }
     }
   });
-  dcrdSocket.on("close", () => {
-    logger.log("info","decrediton has disconnected to dcrd instance");
+  eacrdSocket.on("close", () => {
+    logger.log("info","eacrediton has disconnected to eacrd instance");
   });
 };
 
-export const getDaemonInfo = () => dcrdSocket.send("{\"jsonrpc\":\"1.0\",\"id\":\"getinfo\",\"method\":\"getinfo\",\"params\":[]}");
+export const getDaemonInfo = () => eacrdSocket.send("{\"jsonrpc\":\"1.0\",\"id\":\"getinfo\",\"method\":\"getinfo\",\"params\":[]}");
 
 export const getBlockChainInfo = () => new Promise((resolve) => {
-  if (dcrdSocket && dcrdSocket.readyState === dcrdSocket.CLOSED) {
+  if (eacrdSocket && eacrdSocket.readyState === eacrdSocket.CLOSED) {
     return resolve({});
   }
-  dcrdSocket.send("{\"jsonrpc\":\"1.0\",\"id\":\"getblockchaininfo\",\"method\":\"getblockchaininfo\",\"params\":[]}");
+  eacrdSocket.send("{\"jsonrpc\":\"1.0\",\"id\":\"getblockchaininfo\",\"method\":\"getblockchaininfo\",\"params\":[]}");
 });

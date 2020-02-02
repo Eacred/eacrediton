@@ -4,7 +4,7 @@ import "google/api/annotations.proto";
 
 package lnrpc;
 
-option go_package = "github.com/decred/dcrlnd/lnrpc";
+option go_package = "github.com/Eacred/dcrlnd/lnrpc";
 
 /**
  * Comments in this file will be directly parsed into the API
@@ -1441,7 +1441,7 @@ message GetInfoResponse {
 }
 
 message Chain {
-    /// The blockchain the node is on (eg decred)
+    /// The blockchain the node is on (eg eacred)
     string chain = 1 [json_name = "chain"];
 
     /// The network the node is on (eg regtest, testnet, mainnet)

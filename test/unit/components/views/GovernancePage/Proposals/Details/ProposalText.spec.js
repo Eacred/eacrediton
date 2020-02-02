@@ -59,7 +59,7 @@ test("ProposalTest skips html", () => {
 
 test("ProposalTest protects links", () => {
   const text = render(
-    <ProposalText text={"[link](http://decred.org)"} />
+    <ProposalText text={"[link](http://eacred.org)"} />
   );
 
   expect(text.find("a").attr("href")).toEqual("#");

@@ -10,7 +10,7 @@ const InvalidRPCVersion = ({ requiredWalletRPCVersion, walletRPCVersion }) => (
         id="invalidRPCVersion.info"
         m={`The API of the currently running wallet ({walletRPCVersion}) is not compatible with Decrediton (required version {requiredWalletRPCVersion}).
 
-        Please update the daemon (dcrd) and wallet (dcrwallet) to the latest version, then try again.`}
+        Please update the daemon (eacrd) and wallet (eacrwallet) to the latest version, then try again.`}
         values={{ walletRPCVersion, requiredWalletRPCVersion }}
       />
     </div>

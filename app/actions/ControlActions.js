@@ -228,7 +228,7 @@ export const publishTransactionAttempt = (tx) => (dispatch, getState) => {
     .then(res => {
       // If one of the outputs of the just published tx is one of the recorded
       // change scripts, clear it as to prevent address reuse. This is needed
-      // due to dcrwallet#1622.
+      // due to eacrwallet#1622.
       const rawTx = Buffer.from(tx, "hex");
       const decoded = wallet.decodeRawTransaction(rawTx);
       const changeScriptByAccount = getState().control.changeScriptByAccount || {};
@@ -376,7 +376,7 @@ export const constructTransactionAttempt = (account, confirmations, outputs, all
 
     // If there's a previously stored change address for this account, use it.
     // This alleviates a possible gap limit address exhaustion. See
-    // issue dcrwallet#1622.
+    // issue eacrwallet#1622.
     const changeScript = getState().control.changeScriptByAccount[account] || null;
     if (changeScript) {
       const changeDest = new ConstructTransactionRequest.OutputDestination();
@@ -410,7 +410,7 @@ export const constructTransactionAttempt = (account, confirmations, outputs, all
         if (String(error).indexOf("insufficient balance") > 0) {
           dispatch({ error, type: CONSTRUCTTX_FAILED_LOW_BALANCE });
         } else if (String(error).indexOf("violates the unused address gap limit policy") > 0) {
-          // Work around dcrwallet#1622: generate a new address in the internal
+          // Work around eacrwallet#1622: generate a new address in the internal
           // branch using the wrap gap policy so that change addresses can be
           // regenerated again.
           // We'll still error out to let the user know wrapping has occurred.
@@ -426,7 +426,7 @@ export const constructTransactionAttempt = (account, confirmations, outputs, all
       if (!all) {
         // Store the change address we just generated so that future changes to
         // the tx being constructed will use the same address and prevent gap
-        // limit exhaustion (see above note on issue dcrwallet#1622).
+        // limit exhaustion (see above note on issue eacrwallet#1622).
         const changeIndex = constructTxResponse.getChangeIndex();
         if (changeIndex > -1) {
           const rawTx = Buffer.from(constructTxResponse.getUnsignedTransaction());

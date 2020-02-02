@@ -5,4 +5,4 @@ for this wallet before performing a device wipe and recovery.
 Failure to do so will result in **loss of funds**.
 
 Please also note that Decrediton only supports recovering 24 word (256 bit)
-seeds and that the words for trezor and dcrwallet imports are *different*.
+seeds and that the words for trezor and eacrwallet imports are *different*.

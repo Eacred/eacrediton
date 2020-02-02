@@ -33,7 +33,7 @@ export default ({ setupStandardPrivacy, setupDisabledPrivacy, setupCustomPrivacy
       <PrivacyOption
         title={<T id="privacy.options.disabled.title" m="No Outbound Connections" />}
         icon="icon-disabled"
-        description={<T id="privacy.options.disabled.description" m="Disables all connections to third party (non-dcrd/non-dcrwallet) services. This may prevent you from using certain features of the app. Recommended for advanced users." />}
+        description={<T id="privacy.options.disabled.description" m="Disables all connections to third party (non-eacrd/non-eacrwallet) services. This may prevent you from using certain features of the app. Recommended for advanced users." />}
         onClick={setupDisabledPrivacy}
       />
 

@@ -21,8 +21,8 @@ const VotingPrefsPage = ({
         </p>
       </div>
       <div className="links">
-        <ExternalLink className="info-modal-button" href="https://docs.decred.org/getting-started/user-guides/agenda-voting/"/>
-        <ExternalLink href="https://voting.decred.org"><T id="votingPreferences.dashboard" m="Voting Dashboard" /></ExternalLink>
+        <ExternalLink className="info-modal-button" href="https://docs.eacred.org/getting-started/user-guides/agenda-voting/"/>
+        <ExternalLink href="https://voting.eacred.org"><T id="votingPreferences.dashboard" m="Voting Dashboard" /></ExternalLink>
       </div>
     </div>
     <div className="agenda-wrapper">

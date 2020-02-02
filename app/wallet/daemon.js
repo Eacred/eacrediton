@@ -70,11 +70,11 @@ export const stopWallet = log(() => Promise
 export const startWallet = log((walletPath, testnet) => new Promise((resolve, reject) => {
   let pid, port;
 
-  // resolveCheck must be done both on the dcrwallet-port event and on the
+  // resolveCheck must be done both on the eacrwallet-port event and on the
   // return of the sendSync call because we can't be certain which will happen first
   const resolveCheck = () => pid && port ? resolve({ pid, port }) : null;
 
-  ipcRenderer.once("dcrwallet-port", (e, p) => { port = p; resolveCheck(); });
+  ipcRenderer.once("eacrwallet-port", (e, p) => { port = p; resolveCheck(); });
   pid = ipcRenderer.sendSync("start-wallet", walletPath, testnet);
   if (!pid) reject("Error starting wallet");
   resolveCheck();
@@ -105,18 +105,18 @@ export const getDaemonInfo = log((rpcCreds) => new Promise(resolve => {
   ipcRenderer.send("daemon-getinfo", rpcCreds);
 }), "Get Daemon network info");
 
-export const getDcrdLogs = () => Promise
-  .resolve(ipcRenderer.sendSync("get-dcrd-logs"))
+export const getEcrdLogs = () => Promise
+  .resolve(ipcRenderer.sendSync("get-eacrd-logs"))
   .then(logs => {
     if (logs) return logs;
-    throw "Error getting dcrd logs";
+    throw "Error getting eacrd logs";
   });
 
-export const getDcrwalletLogs = () => Promise
-  .resolve(ipcRenderer.sendSync("get-dcrwallet-logs"))
+export const getEacrwalletLogs = () => Promise
+  .resolve(ipcRenderer.sendSync("get-eacrwallet-logs"))
   .then(logs => {
     if (logs) return logs;
-    throw "Error getting dcrwallet logs";
+    throw "Error getting eacrwallet logs";
   });
 
 export const getDcrlndLogs = () => Promise
@@ -128,10 +128,10 @@ export const getDcrlndLogs = () => Promise
 
 
 export const getDecreditonLogs = () => Promise
-  .resolve(ipcRenderer.sendSync("get-decrediton-logs"))
+  .resolve(ipcRenderer.sendSync("get-eacrediton-logs"))
   .then(logs => {
     if (logs) return logs;
-    throw "Error getting decrediton logs";
+    throw "Error getting eacrediton logs";
   });
 
 export const getAvailableWallets = log((network) => Promise
@@ -153,11 +153,11 @@ export const allowStakePoolHost = log(host => Promise
   .resolve(ipcRenderer.sendSync("allow-stakepool-host", host))
 , "Allow StakePool Host");
 
-export const getDcrdLastLogLine = () => Promise
-  .resolve(ipcRenderer.sendSync("get-last-log-line-dcrd"));
+export const getEcrdLastLogLine = () => Promise
+  .resolve(ipcRenderer.sendSync("get-last-log-line-eacrd"));
 
-export const getDcrwalletLastLogLine = () => Promise
-  .resolve(ipcRenderer.sendSync("get-last-log-line-dcrwallet"));
+export const getEacrwalletLastLogLine = () => Promise
+  .resolve(ipcRenderer.sendSync("get-last-log-line-eacrwallet"));
 
 export const connectDaemon = log( params => new Promise((resolve, reject) => {
   ipcRenderer.once("connectRpcDaemon-response", (e, info) => {

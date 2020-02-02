@@ -1,9 +1,9 @@
 import fs from "fs-extra";
 import path from "path";
 import { createLogger } from "./logging";
-import { getWalletPath, getWalletDb, getDcrdPath, getDcrdRpcCert } from "./paths";
-import { initWalletCfg, newWalletConfigCreation, getWalletCfg, readDcrdConfig } from "config";
-import { launchDCRD, launchDCRWallet, GetDcrdPID, GetDcrwPID, closeDCRD, closeDCRW, GetDcrwPort,
+import { getWalletPath, getWalletDb, getEcrdPath, getEcrdRpcCert } from "./paths";
+import { initWalletCfg, newWalletConfigCreation, getWalletCfg, readEcrdConfig } from "config";
+import { launchDCRD, launchDCRWallet, GetEcrdPID, GetDcrwPID, closeDCRD, closeDCRW, GetDcrwPort,
   launchDCRLnd, GetDcrlndPID, GetDcrlndCreds, closeDcrlnd } from "./launch";
 import { MAINNET } from "constants";
 
@@ -34,7 +34,7 @@ export const getAvailableWallets = (network) => {
 };
 
 export const deleteDaemon = (appData, testnet) => {
-  let removeDaemonDirectory = getDcrdPath();
+  let removeDaemonDirectory = getEcrdPath();
   if (appData) removeDaemonDirectory = appData;
   let removeDaemonDirectoryData = path.join(removeDaemonDirectory, "data", testnet ? "testnet3" : MAINNET);
   try {
@@ -50,13 +50,13 @@ export const deleteDaemon = (appData, testnet) => {
 };
 
 export const startDaemon = async (params, testnet, reactIPC) => {
-  if (GetDcrdPID() && GetDcrdPID() !== -1) {
-    logger.log("info", "Skipping restart of daemon as it is already running " + GetDcrdPID());
+  if (GetEcrdPID() && GetEcrdPID() !== -1) {
+    logger.log("info", "Skipping restart of daemon as it is already running " + GetEcrdPID());
     const appdata = params ? params.appdata : null;
-    const newConfig = readDcrdConfig(appdata, testnet);
+    const newConfig = readEcrdConfig(appdata, testnet);
 
-    newConfig.pid =  GetDcrdPID();
-    newConfig.rpc_cert = getDcrdRpcCert(appdata);
+    newConfig.pid =  GetEcrdPID();
+    newConfig.rpc_cert = getEcrdRpcCert(appdata);
     return newConfig;
   }
 
@@ -64,7 +64,7 @@ export const startDaemon = async (params, testnet, reactIPC) => {
     const started = await launchDCRD(params, testnet, reactIPC);
     return started;
   } catch (e) {
-    logger.log("error", "error launching dcrd: " + e);
+    logger.log("error", "error launching eacrd: " + e);
   }
 };
 
@@ -100,15 +100,15 @@ export const removeWallet = (testnet, walletPath) => {
 
 export const startWallet = (mainWindow, daemonIsAdvanced, testnet, walletPath, reactIPC) => {
   if (GetDcrwPID()) {
-    logger.log("info", "dcrwallet already started " + GetDcrwPID());
-    mainWindow.webContents.send("dcrwallet-port", GetDcrwPort());
+    logger.log("info", "eacrwallet already started " + GetDcrwPID());
+    mainWindow.webContents.send("eacrwallet-port", GetDcrwPort());
     return GetDcrwPID();
   }
   initWalletCfg(testnet, walletPath);
   try {
     return launchDCRWallet(mainWindow, daemonIsAdvanced, walletPath, testnet, reactIPC);
   } catch (e) {
-    logger.log("error", "error launching dcrwallet: " + e);
+    logger.log("error", "error launching eacrwallet: " + e);
   }
 };
 

@@ -3,18 +3,18 @@ import { Subtitle } from "shared";
 import "style/Logs.less";
 
 const Logs = ({
-  showDcrdLogs,
-  showDcrwalletLogs,
-  onShowDcrdLogs,
-  onShowDcrwalletLogs,
-  onHideDcrdLogs,
-  onHideDcrwalletLogs,
-  dcrdLogs,
-  dcrwalletLogs,
+  showEcrdLogs,
+  showEacrwalletLogs,
+  onShowEcrdLogs,
+  onShowEacrwalletLogs,
+  onHideEcrdLogs,
+  onHideEacrwalletLogs,
+  eacrdLogs,
+  eacrwalletLogs,
   isDaemonRemote,
   isDaemonStarted,
   walletReady,
-  decreditonLogs,
+  eacreditonLogs,
   showDecreditonLogs,
   onShowDecreditonLogs,
   onHideDecreditonLogs,
@@ -30,49 +30,49 @@ const Logs = ({
   <>
     <Subtitle title={<T id="logs.subtitle" m="System Logs"/>} />
     {!isDaemonRemote && isDaemonStarted ?
-      !showDcrdLogs ?
+      !showEcrdLogs ?
         <div className="log-area hidden">
-          <div className="log-area-title hidden" onClick={onShowDcrdLogs}>
-            <T id="help.logs.dcrd" m="dcrd" />
+          <div className="log-area-title hidden" onClick={onShowEcrdLogs}>
+            <T id="help.logs.eacrd" m="eacrd" />
           </div>
         </div>:
         <div className="log-area expanded">
-          <div className="log-area-title expanded" onClick={onHideDcrdLogs}>
-            <T id="help.logs.dcrd" m="dcrd" />
+          <div className="log-area-title expanded" onClick={onHideEcrdLogs}>
+            <T id="help.logs.eacrd" m="eacrd" />
           </div>
           <div className="log-area-logs">
-            <textarea rows="30" value={dcrdLogs} disabled />
+            <textarea rows="30" value={eacrdLogs} disabled />
           </div>
         </div> :
       <div/>
     }
-    {!walletReady ? null : !showDcrwalletLogs ?
+    {!walletReady ? null : !showEacrwalletLogs ?
       <div className="log-area hidden">
-        <div className="log-area-title hidden" onClick={onShowDcrwalletLogs}>
-          <T id="help.logs.dcrwallet" m="dcrwallet" />
+        <div className="log-area-title hidden" onClick={onShowEacrwalletLogs}>
+          <T id="help.logs.eacrwallet" m="eacrwallet" />
         </div>
       </div>:
       <div className="log-area expanded">
-        <div className="log-area-title expanded" onClick={onHideDcrwalletLogs}>
-          <T id="help.logs.dcrwallet" m="dcrwallet" />
+        <div className="log-area-title expanded" onClick={onHideEacrwalletLogs}>
+          <T id="help.logs.eacrwallet" m="eacrwallet" />
         </div>
         <div className="log-area-logs">
-          <textarea rows="30" value={dcrwalletLogs} disabled />
+          <textarea rows="30" value={eacrwalletLogs} disabled />
         </div>
       </div>
     }
     {!showDecreditonLogs ?
       <div className="log-area hidden">
         <div className="log-area-title hidden" onClick={onShowDecreditonLogs}>
-          <T id="help.logs.decrediton" m="decrediton" />
+          <T id="help.logs.eacrediton" m="eacrediton" />
         </div>
       </div>:
       <div className="log-area expanded">
         <div className="log-area-title expanded" onClick={onHideDecreditonLogs}>
-          <T id="help.logs.decrediton" m="decrediton" />
+          <T id="help.logs.eacrediton" m="eacrediton" />
         </div>
         <div className="log-area-logs">
-          <textarea rows="30" value={decreditonLogs} disabled />
+          <textarea rows="30" value={eacreditonLogs} disabled />
         </div>
       </div>
     }

@@ -1,5 +1,5 @@
-// Sample script to test the namedpiperx option of dcrwallet in windows.
-// Requires that a wallet config exists in the default decrediton config dir,
+// Sample script to test the namedpiperx option of eacrwallet in windows.
+// Requires that a wallet config exists in the default eacrediton config dir,
 // with a wallet name "default-wallet".
 
 const childProcess = require("child_process");
@@ -8,9 +8,9 @@ const path = require("path");
 const os = require("os");
 const fs = require("fs");
 
-//const pipeFname = "\\\\.\\pipe\\dcrwallet-test";
+//const pipeFname = "\\\\.\\pipe\\eacrwallet-test";
 const walletConfPath = path.join(os.homedir(), "AppData", "Local", "Decrediton",
-  "wallets", "testnet", "default-wallet", "dcrwallet.conf");
+  "wallets", "testnet", "default-wallet", "eacrwallet.conf");
 
 function sleep(milli) {
   return new Promise(resolve => setTimeout(resolve, milli));
@@ -51,7 +51,7 @@ async function test() {
     txStream.on("end", () => console.log("tx stream ended"));
 
     console.log("Launching wallet");
-    childProcess.spawn("dcrwallet", [
+    childProcess.spawn("eacrwallet", [
       `-C ${walletConfPath}`,
       `--piperx ${pipeRx.readEnd}`,
       `--pipetx ${pipeTx.writeEnd}`,

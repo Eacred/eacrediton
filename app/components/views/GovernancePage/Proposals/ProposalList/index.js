@@ -13,7 +13,7 @@ const PageHeader = () => (
         <T id="proposals.community.descr"
           m="Voting on community proposals allows you to have a say on how the project treasury is spent.
           Participation in voting requires (PoS) tickets. Proposal creation, discussions and other features are available at {link}"
-          values={{ link: <PiLink className="proposals-link">proposals.decred.org</PiLink> }} />
+          values={{ link: <PiLink className="proposals-link">proposals.eacred.org</PiLink> }} />
       </div>
     </div>
     <div className="links">

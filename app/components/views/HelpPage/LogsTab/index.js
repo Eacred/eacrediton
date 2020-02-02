@@ -1,5 +1,5 @@
 import Logs from "./Page";
-import { getDcrdLogs, getDcrwalletLogs, getDecreditonLogs, getDcrlndLogs } from "wallet";
+import { getEcrdLogs, getEacrwalletLogs, getDecreditonLogs, getDcrlndLogs } from "wallet";
 import { logging } from "connectors";
 import { DescriptionHeader } from "layout";
 import { FormattedMessage as T } from "react-intl";
@@ -37,20 +37,20 @@ class LogsTabBody extends React.Component {
   getInitialState() {
     return {
       interval: null,
-      dcrdLogs: "",
-      dcrwalletLogs: "",
-      decreditonLogs: "",
+      eacrdLogs: "",
+      eacrwalletLogs: "",
+      eacreditonLogs: "",
       dcrlndLogs: "",
-      showDcrdLogs: false,
-      showDcrwalletLogs: false,
+      showEcrdLogs: false,
+      showEacrwalletLogs: false,
       showDecreditonLogs: false,
       showDcrlndLogs: false
     };
   }
 
   render() {
-    const { onShowDecreditonLogs, onShowDcrdLogs, onShowDcrwalletLogs,
-      onHideDecreditonLogs, onHideDcrdLogs, onHideDcrwalletLogs, onShowDcrlndLogs,
+    const { onShowDecreditonLogs, onShowEcrdLogs, onShowEacrwalletLogs,
+      onHideDecreditonLogs, onHideEcrdLogs, onHideEacrwalletLogs, onShowDcrlndLogs,
       onHideDcrlndLogs
     } = this;
     return (
@@ -59,12 +59,12 @@ class LogsTabBody extends React.Component {
           ...this.props,
           ...this.state,
           onShowDecreditonLogs,
-          onShowDcrdLogs,
-          onShowDcrwalletLogs,
+          onShowEcrdLogs,
+          onShowEacrwalletLogs,
           onShowDcrlndLogs,
           onHideDecreditonLogs,
-          onHideDcrdLogs,
-          onHideDcrwalletLogs,
+          onHideEcrdLogs,
+          onHideEacrwalletLogs,
           onHideDcrlndLogs
         }}
       />
@@ -73,18 +73,18 @@ class LogsTabBody extends React.Component {
 
   getLogs() {
     return Promise
-      .all([ getDcrdLogs(), getDcrwalletLogs(), getDecreditonLogs(), getDcrlndLogs() ])
-      .then(([ rawDcrdLogs, rawDcrwalletLogs, decreditonLogs, dcrlndLogs ]) => {
-        const dcrdLogs = Buffer.from(rawDcrdLogs).toString("utf8");
-        const dcrwalletLogs = Buffer.from(rawDcrwalletLogs).toString("utf8");
-        if ( dcrdLogs !== this.state.dcrdLogs ) {
-          this.setState({ dcrdLogs });
+      .all([ getEcrdLogs(), getEacrwalletLogs(), getDecreditonLogs(), getDcrlndLogs() ])
+      .then(([ rawEcrdLogs, rawEacrwalletLogs, eacreditonLogs, dcrlndLogs ]) => {
+        const eacrdLogs = Buffer.from(rawEcrdLogs).toString("utf8");
+        const eacrwalletLogs = Buffer.from(rawEacrwalletLogs).toString("utf8");
+        if ( eacrdLogs !== this.state.eacrdLogs ) {
+          this.setState({ eacrdLogs });
         }
-        if ( dcrwalletLogs !== this.state.dcrwalletLogs ) {
-          this.setState({ dcrwalletLogs });
+        if ( eacrwalletLogs !== this.state.eacrwalletLogs ) {
+          this.setState({ eacrwalletLogs });
         }
-        if ( decreditonLogs !== this.state.decreditonLogs ) {
-          this.setState({ decreditonLogs });
+        if ( eacreditonLogs !== this.state.eacreditonLogs ) {
+          this.setState({ eacreditonLogs });
         }
         if ( dcrlndLogs !== this.state.dcrlndLogs ) {
           this.setState({ dcrlndLogs });
@@ -100,20 +100,20 @@ class LogsTabBody extends React.Component {
     this.setState({ showDecreditonLogs: false });
   }
 
-  onShowDcrdLogs() {
-    this.setState({ showDcrdLogs: true });
+  onShowEcrdLogs() {
+    this.setState({ showEcrdLogs: true });
   }
 
-  onHideDcrdLogs() {
-    this.setState({ showDcrdLogs: false });
+  onHideEcrdLogs() {
+    this.setState({ showEcrdLogs: false });
   }
 
-  onShowDcrwalletLogs() {
-    this.setState({ showDcrwalletLogs: true });
+  onShowEacrwalletLogs() {
+    this.setState({ showEacrwalletLogs: true });
   }
 
-  onHideDcrwalletLogs() {
-    this.setState({ showDcrwalletLogs: false });
+  onHideEacrwalletLogs() {
+    this.setState({ showEacrwalletLogs: false });
   }
 
   onShowDcrlndLogs() {

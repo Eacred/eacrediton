@@ -16,7 +16,7 @@ import { clipboard } from "electron";
 import { getStartupStats } from "./StatisticsActions";
 import { getTokenAndInitialBatch } from "./GovernanceActions";
 import { rawHashToHex, reverseRawHash, strHashToRaw } from "helpers";
-import * as da from "../middleware/dcrdataapi";
+import * as da from "../middleware/eacrdataapi";
 import { EXTERNALREQUEST_DCRDATA, EXTERNALREQUEST_POLITEIA } from "main_dev/externalRequests";
 import { TESTNET, MAINNET } from "constants";
 
@@ -91,7 +91,7 @@ export const GETSTARTUPWALLETINFO_FAILED = "GETSTARTUPWALLETINFO_FAILED";
 export const getStartupWalletInfo = () => (dispatch) => {
   dispatch({ type: GETSTARTUPWALLETINFO_ATTEMPT });
   const config = getGlobalCfg();
-  const dcrdataEnabled = config.get("allowed_external_requests").indexOf(EXTERNALREQUEST_DCRDATA) > -1;
+  const eacrdataEnabled = config.get("allowed_external_requests").indexOf(EXTERNALREQUEST_DCRDATA) > -1;
   const politeiaEnabled = config.get("allowed_external_requests").indexOf(EXTERNALREQUEST_POLITEIA) > -1;
   const lnEnabled = config.get("ln_enabled");
 
@@ -105,7 +105,7 @@ export const getStartupWalletInfo = () => (dispatch) => {
         await dispatch(publishUnminedTransactionsAttempt());
         await dispatch(getAccountsAttempt(true));
         await dispatch(getStartupStats());
-        if (dcrdataEnabled) {
+        if (eacrdataEnabled) {
           dispatch(getTreasuryBalance());
         }
         if (politeiaEnabled) {
@@ -740,7 +740,7 @@ export const getTransactions = () => async (dispatch, getState) => {
   // List of transactions found after filtering
   let filtered = [];
 
-  // first, request unmined transactions. They always come first in decrediton.
+  // first, request unmined transactions. They always come first in eacrediton.
   let { unmined } = await walletGetTransactions(walletService, -1, -1, 0);
   let unminedTransactions = filterTransactions(unmined, transactionsFilter);
 
@@ -1176,7 +1176,7 @@ const getMissingStakeTxData = tx => async (dispatch, getState) => {
 
   if (tx.txType == "Ticket") {
     // This is currently a somewhat slow call in RPC mode due to having to check
-    // in dcrd whether the ticket is live or not.
+    // in eacrd whether the ticket is live or not.
     const ticket = await wallet.getTicket(walletService, strHashToRaw(tx.txHash));
     status = ticket.status;
     if (ticket.spender.getHash()) {
@@ -1289,7 +1289,7 @@ export const fetchMissingStakeTxData = tx => async (dispatch, getState) => {
 export const GETTREASURY_BALANCE_SUCCESS = "GETTREASURY_BALANCE_SUCCESS";
 export const getTreasuryBalance = () => (dispatch, getState) => {
   const treasuryAddress = sel.chainParams(getState()).TreasuryAddress;
-  const dURL = sel.dcrdataURL(getState());
+  const dURL = sel.eacrdataURL(getState());
   da.getTreasuryInfo(dURL, treasuryAddress)
     .then(treasuryInfo => {
       // Manually convert DCR to atom amounts to avoid floating point multiplication errors (eg. 589926.57667882*1e8 => 58992657667881.99)

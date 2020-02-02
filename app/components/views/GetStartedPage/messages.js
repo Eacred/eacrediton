@@ -30,7 +30,7 @@ export const messages = defineMessages({
 
 export const UpdateAvailableLink = ({ updateAvailable }) => (
   <Tooltip text={<T id="getStarted.updateAvailableTooltip" m="New version {version} available" values={{ version: (updateAvailable) }}/>}>
-    <ExternalLink className="update-available-button" href="https://decred.org/downloads">
+    <ExternalLink className="update-available-button" href="https://eacred.org/downloads">
       <T id="getStarted.updateAvailable" m="Update Available" />
     </ExternalLink>
   </Tooltip>

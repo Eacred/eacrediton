@@ -5,10 +5,10 @@ import axios from "axios";
 // export const POLITEIA_URL_TESTNET = "https://localhost:4443";
 
 // Politeia doc source:
-// https://github.com/decred/politeia/blob/master/politeiawww/api/www/v1/api.md
+// https://github.com/Eacred/politeia/blob/master/politeiawww/api/www/v1/api.md
 
-export const POLITEIA_URL_TESTNET = "https://test-proposals.decred.org/api";
-export const POLITEIA_URL_MAINNET = "https://proposals.decred.org/api";
+export const POLITEIA_URL_TESTNET = "https://test-proposals.eacred.org/api";
+export const POLITEIA_URL_MAINNET = "https://proposals.eacred.org/api";
 
 const CSRF_TOKEN_HEADER = "x-csrf-token"; // must always be lowercase
 

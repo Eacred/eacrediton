@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "POT-Creation-Date: 2019-10-17T13:25:05.536Z\n"
 "Last-Translator: Guang Guang <guang.dcr@gmail.com>, 2019\n"
-"Language-Team: Chinese (https://www.transifex.com/decred/teams/79156/zh/)\n"
+"Language-Team: Chinese (https://www.transifex.com/eacred/teams/79156/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -161,11 +161,11 @@ msgctxt "help.about"
 msgid "About Decrediton"
 msgstr "关于 Decrediton"
 
-#. [help.about.decrediton]
+#. [help.about.eacrediton]
 #. defaultMessage is:
 #. About Decrediton
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
-msgctxt "help.about.decrediton"
+msgctxt "help.about.eacrediton"
 msgid "About Decrediton"
 msgstr "关于 Decrediton"
 
@@ -185,12 +185,12 @@ msgctxt "privacy.custom.accept"
 msgid "Accept"
 msgstr "接受"
 
-#. [settings.privacy.dcrdata.description]
+#. [settings.privacy.eacrdata.description]
 #. defaultMessage is:
-#. Access chain information from dcrdata.decred.org
+#. Access chain information from eacrdata.eacred.org
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
-msgctxt "settings.privacy.dcrdata.description"
-msgid "Access chain information from dcrdata.decred.org"
+msgctxt "settings.privacy.eacrdata.description"
+msgid "Access chain information from eacrdata.eacred.org"
 msgstr ""
 
 #. [securitycenter.validate.owned.accountNumber]
@@ -1701,11 +1701,11 @@ msgctxt "charts.keys.day"
 msgid "Days"
 msgstr "天数"
 
-#. [settings.privacy.dcrdata.label]
+#. [settings.privacy.eacrdata.label]
 #. defaultMessage is:
 #. Decred Block Explorer
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
-msgctxt "settings.privacy.dcrdata.label"
+msgctxt "settings.privacy.eacrdata.label"
 msgid "Decred Block Explorer"
 msgstr "Decred区块浏览器"
 
@@ -1733,19 +1733,19 @@ msgctxt "aboutModal.paragraph2b"
 msgid "Decred contributors"
 msgstr "Decred 贡献者"
 
-#. [aboutModal.decrediton]
+#. [aboutModal.eacrediton]
 #. defaultMessage is:
 #. Decrediton
 #: app/i18n/extracted/app/components/modals/AboutModal/AboutModal.json
-msgctxt "aboutModal.decrediton"
+msgctxt "aboutModal.eacrediton"
 msgid "Decrediton"
 msgstr "Decrediton"
 
-#. [appMenu.decrediton]
+#. [appMenu.eacrediton]
 #. defaultMessage is:
 #. Decrediton
 #: app/i18n/extracted/static/menus.json
-msgctxt "appMenu.decrediton"
+msgctxt "appMenu.eacrediton"
 msgid "Decrediton"
 msgstr "Decrediton"
 
@@ -1910,16 +1910,16 @@ msgstr "已禁用"
 
 #. [privacy.options.disabled.description]
 #. defaultMessage is:
-#. Disables all connections to third party (non-dcrd/non-dcrwallet) services.
+#. Disables all connections to third party (non-eacrd/non-eacrwallet) services.
 #. This may prevent you from using certain features of the app. Recommended
 #. for advanced users.
 #: app/i18n/extracted/app/components/views/GetStartedPage/PrivacyPage/TopLevelOptions.json
 msgctxt "privacy.options.disabled.description"
 msgid ""
-"Disables all connections to third party (non-dcrd/non-dcrwallet) services. "
+"Disables all connections to third party (non-eacrd/non-eacrwallet) services. "
 "This may prevent you from using certain features of the app. Recommended for"
 " advanced users."
-msgstr "禁用与第三方（非 dcrd/非-dcr钱包）服务的所有连接。这可能使您无法使用应用的某些功能。建议高级用户使用。"
+msgstr "禁用与第三方（非 eacrd/非-dcr钱包）服务的所有连接。这可能使您无法使用应用的某些功能。建议高级用户使用。"
 
 #. [getStarted.header.discoveringAddresses.meta]
 #. defaultMessage is:
@@ -2623,11 +2623,11 @@ msgstr "通用"
 
 #. [settings.privacy.networkStatus.description]
 #. defaultMessage is:
-#. General network information (block height, etc) from decred.org
+#. General network information (block height, etc) from eacred.org
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
 msgctxt "settings.privacy.networkStatus.description"
-msgid "General network information (block height, etc) from decred.org"
-msgstr "来自decred.org的一般网络信息（区块高度等）"
+msgid "General network information (block height, etc) from eacred.org"
+msgstr "来自eacred.org的一般网络信息（区块高度等）"
 
 #. [home.noTransactions.receiveLink]
 #. defaultMessage is:
@@ -2847,14 +2847,14 @@ msgstr "I / O详细信息"
 
 #. [help.description.links]
 #. defaultMessage is:
-#. If you have any difficulty with decrediton, please use the following links
+#. If you have any difficulty with eacrediton, please use the following links
 #. to help find a solution.
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.description.links"
 msgid ""
-"If you have any difficulty with decrediton, please use the following links "
+"If you have any difficulty with eacrediton, please use the following links "
 "to help find a solution."
-msgstr "如果您对decrediton有任何不清楚的，请使用以下链接来帮助寻找解决方案。"
+msgstr "如果您对eacrediton有任何不清楚的，请使用以下链接来帮助寻找解决方案。"
 
 #. [tickets.autobuyerRunning.message]
 #. defaultMessage is:
@@ -3277,19 +3277,19 @@ msgstr ""
 
 #. [settings.privacy.politeia.description]
 #. defaultMessage is:
-#. List and vote on proposals on proposals.decred.org
+#. List and vote on proposals on proposals.eacred.org
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
 msgctxt "settings.privacy.politeia.description"
-msgid "List and vote on proposals on proposals.decred.org"
-msgstr "列出proposals.decred.org里的提案并且对提案投票"
+msgid "List and vote on proposals on proposals.eacred.org"
+msgstr "列出proposals.eacred.org里的提案并且对提案投票"
 
 #. [settings.privacy.stakepoolListing.description]
 #. defaultMessage is:
-#. List of currently available stakepools from decred.org
+#. List of currently available stakepools from eacred.org
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
 msgctxt "settings.privacy.stakepoolListing.description"
-msgid "List of currently available stakepools from decred.org"
-msgstr "来自decred.org的当前可用选票矿池列表"
+msgid "List of currently available stakepools from eacred.org"
+msgstr "来自eacred.org的当前可用选票矿池列表"
 
 #. [transaction.type.live]
 #. defaultMessage is:
@@ -4916,11 +4916,11 @@ msgstr "再次输入私人密码"
 
 #. [send.publishUnminedTransactions.success]
 #. defaultMessage is:
-#. Republished unmined transactions to the decred network.
+#. Republished unmined transactions to the eacred network.
 #: app/i18n/extracted/app/reducers/snackbar.json
 msgctxt "send.publishUnminedTransactions.success"
-msgid "Republished unmined transactions to the decred network."
-msgstr "将未打包的交易重新发布到decred网络。"
+msgid "Republished unmined transactions to the eacred network."
+msgstr "将未打包的交易重新发布到eacred网络。"
 
 #. [getStarted.walletRescan.progress]
 #. defaultMessage is:
@@ -5618,11 +5618,11 @@ msgctxt "history.min.value"
 msgid "Slider min"
 msgstr "滑块最小值"
 
-#. [help.about.decrediton.subtitle]
+#. [help.about.eacrediton.subtitle]
 #. defaultMessage is:
 #. Software Summary
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
-msgctxt "help.about.decrediton.subtitle"
+msgctxt "help.about.eacrediton.subtitle"
 msgid "Software Summary"
 msgstr "软件概要"
 
@@ -6040,18 +6040,18 @@ msgstr ""
 #. defaultMessage is:
 #. The API of the currently running wallet ({walletRPCVersion}) is not
 #. compatible with Decrediton (required version {requiredWalletRPCVersion}).
-#.         Please update the daemon (dcrd) and wallet (dcrwallet) to the
+#.         Please update the daemon (eacrd) and wallet (eacrwallet) to the
 #. latest version, then try again.
 #: app/i18n/extracted/app/components/views/InvalidRPCVersion.json
 msgctxt "invalidRPCVersion.info"
 msgid ""
 "The API of the currently running wallet ({walletRPCVersion}) is not compatible with Decrediton (required version {requiredWalletRPCVersion}).\n"
 "\n"
-"        Please update the daemon (dcrd) and wallet (dcrwallet) to the latest version, then try again."
+"        Please update the daemon (eacrd) and wallet (eacrwallet) to the latest version, then try again."
 msgstr ""
 "当前运行的钱包（{walletRPCVersion}）的API与Decrediton（必需的版本{requiredWalletRPCVersion}）不兼容。\n"
 "\n"
-"请将守护程序（dcrd）和钱包（dcrwallet）更新到最新版本，然后重试。"
+"请将守护程序（eacrd）和钱包（eacrwallet）更新到最新版本，然后重试。"
 
 #. [ln.connectPage.accountDescr]
 #. defaultMessage is:
@@ -6156,14 +6156,14 @@ msgstr "该错误通常表示您有其他守护进程实体正在运行，您应
 
 #. [fatal.suggestion.diffConnection]
 #. defaultMessage is:
-#. This error typically means you have the testnet flag in your dcrd.conf
-#. file. You should check your dcrd.conf file and remove the testnet=1.
+#. This error typically means you have the testnet flag in your eacrd.conf
+#. file. You should check your eacrd.conf file and remove the testnet=1.
 #: app/i18n/extracted/app/components/views/FatalErrorPage.json
 msgctxt "fatal.suggestion.diffConnection"
 msgid ""
-"This error typically means you have the testnet flag in your dcrd.conf file."
-" You should check your dcrd.conf file and remove the testnet=1."
-msgstr "此错误通常表示您在dcrd.conf文件中具有测试网标志。 您应检查dcrd.conf文件并删除testnet = 1。"
+"This error typically means you have the testnet flag in your eacrd.conf file."
+" You should check your eacrd.conf file and remove the testnet=1."
+msgstr "此错误通常表示您在eacrd.conf文件中具有测试网标志。 您应检查eacrd.conf文件并删除testnet = 1。"
 
 #. [input.requiredInput]
 #. defaultMessage is:
@@ -6216,10 +6216,10 @@ msgstr "这个钱包已加密，请输入公共密码来解密它。"
 
 #. [settings.alreadySetFromCli]
 #. defaultMessage is:
-#. This was set as a command-line option when launching decrediton
+#. This was set as a command-line option when launching eacrediton
 #: app/i18n/extracted/app/components/views/SettingsPage/GeneralSettings.json
 msgctxt "settings.alreadySetFromCli"
-msgid "This was set as a command-line option when launching decrediton"
+msgid "This was set as a command-line option when launching eacrediton"
 msgstr ""
 
 #. [spv.options.disable.description]
@@ -7702,14 +7702,14 @@ msgstr "输入密码错误。请确认您已输入正确的钱包密码。"
 
 #. [getStarted.longWaitWarning]
 #. defaultMessage is:
-#. You are currently upgrading to a new dcrd version.  Typically, this one-
+#. You are currently upgrading to a new eacrd version.  Typically, this one-
 #. time reindexing will take 30-45 minutes on an average machine.
 #: app/i18n/extracted/app/components/views/GetStartedPage/DaemonLoading/Form.json
 msgctxt "getStarted.longWaitWarning"
 msgid ""
-"You are currently upgrading to a new dcrd version.  Typically, this one-time"
+"You are currently upgrading to a new eacrd version.  Typically, this one-time"
 " reindexing will take 30-45 minutes on an average machine."
-msgstr "您正在升级到新的dcrd版本。通常这种一次性重建索引在一般机器上需要30-45分钟。"
+msgstr "您正在升级到新的eacrd版本。通常这种一次性重建索引在一般机器上需要30-45分钟。"
 
 #. [tickets.purchaseTicketsHeader]
 #. defaultMessage is:
@@ -7797,20 +7797,20 @@ msgctxt "trezor.pinModal.clear"
 msgid "clear"
 msgstr "清除"
 
-#. [help.logs.dcrd]
+#. [help.logs.eacrd]
 #. defaultMessage is:
-#. dcrd
+#. eacrd
 #: app/i18n/extracted/app/components/views/HelpPage/LogsTab/Page.json
-msgctxt "help.logs.dcrd"
-msgid "dcrd"
-msgstr "dcrd"
+msgctxt "help.logs.eacrd"
+msgid "eacrd"
+msgstr "eacrd"
 
 #. [help.blockchain.subtitle]
 #. defaultMessage is:
-#. dcrdata.decred.org
+#. eacrdata.eacred.org
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.blockchain.subtitle"
-msgid "dcrdata.decred.org"
+msgid "eacrdata.eacred.org"
 msgstr ""
 
 #. [help.logs.dcrlnd]
@@ -7821,37 +7821,37 @@ msgctxt "help.logs.dcrlnd"
 msgid "dcrlnd"
 msgstr ""
 
-#. [help.logs.dcrwallet]
+#. [help.logs.eacrwallet]
 #. defaultMessage is:
-#. dcrwallet
+#. eacrwallet
 #: app/i18n/extracted/app/components/views/HelpPage/LogsTab/Page.json
-msgctxt "help.logs.dcrwallet"
-msgid "dcrwallet"
-msgstr "dcrwallet"
+msgctxt "help.logs.eacrwallet"
+msgid "eacrwallet"
+msgstr "eacrwallet"
 
 #. [help.stakepools.subtitle]
 #. defaultMessage is:
-#. decred.org/stakepools
+#. eacred.org/stakepools
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.stakepools.subtitle"
-msgid "decred.org/stakepools"
-msgstr "decred.org/stakepools"
+msgid "eacred.org/stakepools"
+msgstr "eacred.org/stakepools"
 
-#. [help.logs.decrediton]
+#. [help.logs.eacrediton]
 #. defaultMessage is:
-#. decrediton
+#. eacrediton
 #: app/i18n/extracted/app/components/views/HelpPage/LogsTab/Page.json
-msgctxt "help.logs.decrediton"
-msgid "decrediton"
-msgstr "decrediton"
+msgctxt "help.logs.eacrediton"
+msgid "eacrediton"
+msgstr "eacrediton"
 
 #. [help.documentation.subtitle]
 #. defaultMessage is:
-#. docs.decred.org
+#. docs.eacred.org
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.documentation.subtitle"
-msgid "docs.decred.org"
-msgstr "docs.decred.org"
+msgid "docs.eacred.org"
+msgstr "docs.eacred.org"
 
 #. [ticket.status.expired]
 #. defaultMessage is:
@@ -7871,11 +7871,11 @@ msgstr "过期"
 
 #. [help.github.subtitle]
 #. defaultMessage is:
-#. github.com/decred/decrediton
+#. github.com/Eacred/eacrediton
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.github.subtitle"
-msgid "github.com/decred/decrediton"
-msgstr "github.com/decred/decrediton"
+msgid "github.com/Eacred/eacrediton"
+msgstr "github.com/Eacred/eacrediton"
 
 #. [spv.titleSub.here]
 #. defaultMessage is:
@@ -7967,19 +7967,19 @@ msgstr "riot.im"
 
 #. [help.slack.subtitle]
 #. defaultMessage is:
-#. slack.decred.org
+#. slack.eacred.org
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.slack.subtitle"
-msgid "slack.decred.org"
-msgstr "slack.decred.org"
+msgid "slack.eacred.org"
+msgstr "slack.eacred.org"
 
 #. [help.telegram.subtitle]
 #. defaultMessage is:
-#. t.me/decred
+#. t.me/eacred
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 msgctxt "help.telegram.subtitle"
-msgid "t.me/decred"
-msgstr "t.me/decred"
+msgid "t.me/eacred"
+msgstr "t.me/eacred"
 
 #. [stake.discoverStakeOoolsAPILink]
 #. defaultMessage is:

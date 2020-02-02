@@ -1,8 +1,8 @@
 // @flow
 import axios from "axios";
 
-export const DCRDATA_URL_TESTNET = "https://testnet.decred.org/api";
-export const DCRDATA_URL_MAINNET = "https://dcrdata.decred.org/api";
+export const DCRDATA_URL_TESTNET = "https://testnet.eacred.org/api";
+export const DCRDATA_URL_MAINNET = "https://eacrdata.eacred.org/api";
 
 const GET = (path) => {
   return axios.get(path);

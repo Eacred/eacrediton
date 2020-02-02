@@ -2,7 +2,7 @@
 import axios from "axios";
 import querystring from "querystring";
 
-const URL_BASE = "https://api.decred.org";
+const URL_BASE = "https://api.eacred.org";
 
 const GET = (path, apiToken) => {
   const config = {

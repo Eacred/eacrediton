@@ -60,11 +60,11 @@ export const saveSettings = (settings) => async (dispatch, getState) => {
     dispatch({ theme: settings.theme, type: SETTINGS_TOGGLE_THEME });
   }
 
-  const newDcrdataEnabled = settings.allowedExternalRequests.indexOf(EXTERNALREQUEST_DCRDATA) > -1;
-  if (newDcrdataEnabled === true) {
+  const newEcrdataEnabled = settings.allowedExternalRequests.indexOf(EXTERNALREQUEST_DCRDATA) > -1;
+  if (newEcrdataEnabled === true) {
     dispatch(getTreasuryBalance());
   }
-  if (newDcrdataEnabled === false) {
+  if (newEcrdataEnabled === false) {
     dispatch(resetTreasuryBalance());
   }
 

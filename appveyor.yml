@@ -19,21 +19,21 @@ install:
   - npm install npm -g
   - go version
   - go env
-  - go get -u -v github.com/decred/dcrd
-  - go get -u -v github.com/decred/dcrwallet
+  - go get -u -v github.com/Eacred/eacrd
+  - go get -u -v github.com/Eacred/eacrwallet
   - go get -u -v github.com/Masterminds/glide
   - go get -u github.com/golang/dep/cmd/dep
-  - cd %GOPATH%\\src\\github.com\\decred\\dcrd
+  - cd %GOPATH%\\src\\github.com\\eacred\\eacrd
   - glide i
   - go install . ./cmd/dcrctl/
-  - cd ../dcrwallet
+  - cd ../eacrwallet
   - dep ensure
   - go install
   - cd %APPVEYOR_BUILD_FOLDER%
   - mkdir bin
-  - cp %GOPATH%\\bin\\dcrd.exe bin/
+  - cp %GOPATH%\\bin\\eacrd.exe bin/
   - cp %GOPATH%\\bin\\dcrctl.exe bin/
-  - cp %GOPATH%\\bin\\dcrwallet.exe bin/
+  - cp %GOPATH%\\bin\\eacrwallet.exe bin/
   - npm install
 
 build_script:

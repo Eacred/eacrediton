@@ -3,12 +3,12 @@ import parseArgs from "minimist";
 import { app, BrowserWindow, Menu, dialog } from "electron";
 import { initGlobalCfg, validateGlobalCfgFile, setMustOpenForm } from "./config";
 import { appLocaleFromElectronLocale, default as locales } from "./i18n/locales";
-import { createLogger, lastLogLine, GetDcrdLogs, GetDcrwalletLogs, GetDcrlndLogs } from "./main_dev/logging";
+import { createLogger, lastLogLine, GetEcrdLogs, GetEacrwalletLogs, GetDcrlndLogs } from "./main_dev/logging";
 import { getWalletsDirectoryPath, getWalletsDirectoryPathNetwork, getAppDataDirectory } from "./main_dev/paths";
 import { getGlobalCfgPath, checkAndInitWalletCfg } from "./main_dev/paths";
 import { installSessionHandlers, reloadAllowedExternalRequests, allowStakepoolRequests, allowExternalRequest } from "./main_dev/externalRequests";
 import { setupProxy } from "./main_dev/proxy";
-import { getDaemonInfo, cleanShutdown, GetDcrdPID, GetDcrwPID, getBlockChainInfo, connectRpcDaemon,
+import { getDaemonInfo, cleanShutdown, GetEcrdPID, GetDcrwPID, getBlockChainInfo, connectRpcDaemon,
   GetDcrlndPID, GetDcrlndCreds } from "./main_dev/launch";
 import { getAvailableWallets, startDaemon, createWallet, removeWallet, stopDaemon, stopWallet, startWallet,
   deleteDaemon, setWatchingOnlyWallet, getWatchingOnlyWallet, startDcrlnd, stopDcrlnd } from "./main_dev/ipc";
@@ -20,7 +20,7 @@ import { OPTIONS, USAGE_MESSAGE, VERSION_MESSAGE, BOTH_CONNECTION_ERR_MESSAGE, M
   RPC_WITHOUT_ADVANCED_MODE, RPCCONNECT_INVALID_FORMAT, RPC_MISSING_OPTIONS, SPV_WITH_ADVANCED_MODE, TESTNET, MAINNET } from "constants";
 import { DAEMON_ADVANCED, LOCALE } from "constants/config";
 
-// setPath as decrediton
+// setPath as eacrediton
 app.setPath("userData", getAppDataDirectory());
 
 const argv = parseArgs(process.argv.slice(1), OPTIONS);
@@ -263,7 +263,7 @@ ipcMain.on("daemon-getinfo", () => {
 });
 
 ipcMain.on("clean-shutdown", async function(event){
-  const stopped = await cleanShutdown(mainWindow, app, GetDcrdPID(), GetDcrwPID());
+  const stopped = await cleanShutdown(mainWindow, app, GetEcrdPID(), GetDcrwPID());
   event.sender.send("clean-shutdown-finished", stopped);
 });
 
@@ -285,19 +285,19 @@ ipcMain.on("main-log", (event, ...args) => {
   logger.log(...args);
 });
 
-ipcMain.on("get-dcrd-logs", (event) => {
-  event.returnValue = GetDcrdLogs();
+ipcMain.on("get-eacrd-logs", (event) => {
+  event.returnValue = GetEcrdLogs();
 });
 
-ipcMain.on("get-dcrwallet-logs", (event) => {
-  event.returnValue = GetDcrwalletLogs();
+ipcMain.on("get-eacrwallet-logs", (event) => {
+  event.returnValue = GetEacrwalletLogs();
 });
 
 ipcMain.on("get-dcrlnd-logs", (event) => {
   event.returnValue = GetDcrlndLogs();
 });
 
-ipcMain.on("get-decrediton-logs", (event) => {
+ipcMain.on("get-eacrediton-logs", (event) => {
   const logFileName = logger.transports.file.dirname + "/" +logger.transports.file.filename;
   readFileBackward(logFileName, MAX_LOG_LENGTH, (err, data) => {
     if (err) {
@@ -308,12 +308,12 @@ ipcMain.on("get-decrediton-logs", (event) => {
   });
 });
 
-ipcMain.on("get-last-log-line-dcrd", event => {
-  event.returnValue = lastLogLine(GetDcrdLogs());
+ipcMain.on("get-last-log-line-eacrd", event => {
+  event.returnValue = lastLogLine(GetEcrdLogs());
 });
 
-ipcMain.on("get-last-log-line-dcrwallet", event => {
-  event.returnValue = lastLogLine(GetDcrwalletLogs());
+ipcMain.on("get-last-log-line-eacrwallet", event => {
+  event.returnValue = lastLogLine(GetEacrwalletLogs());
 });
 
 ipcMain.on("get-previous-wallet", (event) => {
@@ -352,7 +352,7 @@ app.on("ready", async () => {
   });
 
   // when installing (on first run) locale will be empty. Determine the user's
-  // OS locale and set that as decrediton's locale.
+  // OS locale and set that as eacrediton's locale.
   const cfgLocale = globalCfg.get(LOCALE, "");
   let locale = locales.find(value => value.key === cfgLocale);
   if (!locale) {
@@ -442,9 +442,9 @@ app.on("ready", async () => {
 });
 
 app.on("before-quit", (event) => {
-  logger.log("info","Caught before-quit. Set decredition as was closed");
+  logger.log("info","Caught before-quit. Set eacredition as was closed");
   event.preventDefault();
-  cleanShutdown(mainWindow, app, GetDcrdPID(), GetDcrwPID());
+  cleanShutdown(mainWindow, app, GetEcrdPID(), GetDcrwPID());
   setMustOpenForm(true);
   app.exit(0);
 });

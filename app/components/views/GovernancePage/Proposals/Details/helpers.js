@@ -93,7 +93,7 @@ export const TimeValue = ({ timestamp, tsDate }) => (
 );
 
 // This changes links to never open. Debatable whether we want to
-// allow proposals to link somewhere directly from decrediton.
+// allow proposals to link somewhere directly from eacrediton.
 const renderInternalProposalLink = ({ children, href }) => (
   <InvisibleConfirmModalButton
     modalTitle={<T id="politeia.details.openLinkModal" m="Open Link in External Browser"/>}
@@ -109,7 +109,7 @@ const renderInternalProposalLink = ({ children, href }) => (
 );
 
 // This changes images to never open. Debatable whether we want to
-// allow proposals to open images directly from decrediton.
+// allow proposals to open images directly from eacrediton.
 const renderProposalImage = ({ alt }) => <span>{alt}</span>;
 
 export const ProposalText = ({ text }) => (
@@ -130,7 +130,7 @@ export const ProposalText = ({ text }) => (
         linkReference: renderInternalProposalLink,
 
         // debatable whether we wanna allow inline image references in proposals
-        // in decrediton.
+        // in eacrediton.
         imageReference: renderProposalImage,
         image: renderProposalImage,
 

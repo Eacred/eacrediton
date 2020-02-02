@@ -8,7 +8,7 @@ import { getWalletServiceAttempt, startWalletServices, getBestBlockHeightAttempt
   cancelPingAttempt } from "./ClientActions";
 import { getVersionServiceAttempt } from "./VersionActions";
 import { getAvailableWallets, WALLETREMOVED_FAILED } from "./DaemonActions";
-import { getWalletCfg, getDcrdCert } from "config";
+import { getWalletCfg, getEcrdCert } from "config";
 import { getWalletPath } from "main_dev/paths";
 import { isTestNet, isSPV } from "selectors";
 import { SpvSyncRequest, SyncNotificationType, RpcSyncRequest } from "../middleware/walletrpc/api_pb";
@@ -247,7 +247,7 @@ export const startRpcRequestFunc = (isRetry, privPass) =>
       rpcport = cfg.get("rpc_port");
     }
     var request = new RpcSyncRequest();
-    const cert = getDcrdCert(rpccertPath);
+    const cert = getEcrdCert(rpccertPath);
     request.setNetworkAddress(daemonhost + ":" + rpcport);
     request.setUsername(rpcuser);
     request.setPassword(new Uint8Array(Buffer.from(rpcpass)));

@@ -1,7 +1,7 @@
 import { KeyBlueButton } from "buttons";
 import { ShowError } from "shared";
 import { FormattedMessage as T } from "react-intl";
-import { getDcrdLastLogLine, getDcrwalletLastLogLine } from "wallet";
+import { getEcrdLastLogLine, getEacrwalletLastLogLine } from "wallet";
 import ReactTimeout from "react-timeout";
 import "style/GetStarted.less";
 
@@ -10,17 +10,17 @@ function parseLogLine(line) {
   return res ? res[1] : "";
 }
 
-const LastLogLinesFragment = ({ lastDcrdLogLine, lastDcrwalletLogLine }) => (
+const LastLogLinesFragment = ({ lastEcrdLogLine, lastEacrwalletLogLine }) => (
   <div className="get-started-last-log-lines">
-    <div className="last-dcrd-log-line">{lastDcrdLogLine}</div>
-    <div className="last-dcrwallet-log-line">{lastDcrwalletLogLine}</div>
+    <div className="last-eacrd-log-line">{lastEcrdLogLine}</div>
+    <div className="last-eacrwallet-log-line">{lastEacrwalletLogLine}</div>
   </div>
 );
 
 const StartupErrorFragment = ({ onRetryStartRPC }) => (
   <div className="advanced-page-form">
     <div className="advanced-daemon-row">
-      <ShowError className="get-started-error" error="Connection to dcrd failed, please try and reconnect." />
+      <ShowError className="get-started-error" error="Connection to eacrd failed, please try and reconnect." />
     </div>
     <div className="loader-bar-buttons">
       <KeyBlueButton className="get-started-rpc-retry-button" onClick={onRetryStartRPC}>
@@ -35,20 +35,20 @@ class StartRPCBody extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { lastDcrdLogLine: "", lastDcrwalletLogLine: "" };
+    this.state = { lastEcrdLogLine: "", lastEacrwalletLogLine: "" };
   }
 
   componentDidMount() {
     this.props.setInterval(() => {
       Promise
-        .all([ getDcrdLastLogLine(), getDcrwalletLastLogLine() ])
-        .then(([ dcrdLine, dcrwalletLine ]) => {
-          const lastDcrdLogLine = parseLogLine(dcrdLine);
-          const lastDcrwalletLogLine = parseLogLine(dcrwalletLine);
-          if ( lastDcrdLogLine !== this.state.lastDcrdLogLine ||
-              lastDcrwalletLogLine !== this.state.lastDcrwalletLogLine)
+        .all([ getEcrdLastLogLine(), getEacrwalletLastLogLine() ])
+        .then(([ eacrdLine, eacrwalletLine ]) => {
+          const lastEcrdLogLine = parseLogLine(eacrdLine);
+          const lastEacrwalletLogLine = parseLogLine(eacrwalletLine);
+          if ( lastEcrdLogLine !== this.state.lastEcrdLogLine ||
+              lastEacrwalletLogLine !== this.state.lastEacrwalletLogLine)
           {
-            this.setState({ lastDcrdLogLine, lastDcrwalletLogLine });
+            this.setState({ lastEcrdLogLine, lastEacrwalletLogLine });
           }
         });
     }, 2000);

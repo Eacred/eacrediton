@@ -13,7 +13,7 @@ import { setPoliteiaPath, getEligibleTickets, saveEligibleTickets, savePiVote, g
 // PropVoteStatusFinished      PropVoteStatusT = 4 // Proposal vote has been finished
 // PropVoteStatusDoesntExist   PropVoteStatusT = 5 // Proposal doesn't exist
 //
-// source: https://github.com/decred/politeia/blob/master/politeiawww/api/www/v1/v1.go
+// source: https://github.com/Eacred/politeia/blob/master/politeiawww/api/www/v1/v1.go
 
 export const VOTESTATUS_ACTIVEVOTE = 3;
 export const VOTESTATUS_FINISHEDVOTE = 4;

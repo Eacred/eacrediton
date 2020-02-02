@@ -157,7 +157,7 @@ export const connectToLNWallet = (address, port, certPath, macaroonPath, account
   try {
     let lnClient = await ln.getLightningClient(address, port, certPath, macaroonPath);
 
-    // Ensure the dcrlnd instance and decrediton are connected to the same(ish)
+    // Ensure the dcrlnd instance and eacrediton are connected to the same(ish)
     // wallet. For this test to fail the user would have had to manually change
     // a lot of config files and it should only happen when reconnecting to a
     // running instance, but we'll err on the side of being safe. We generate an

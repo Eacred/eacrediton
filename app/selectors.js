@@ -9,7 +9,7 @@ import { MainNetParams, TestNetParams } from "constants";
 import { /*TicketTypes,*/ decodeVoteScript } from "./helpers/tickets";
 import { EXTERNALREQUEST_STAKEPOOL_LISTING, EXTERNALREQUEST_POLITEIA, EXTERNALREQUEST_DCRDATA } from "main_dev/externalRequests";
 import { POLITEIA_URL_TESTNET, POLITEIA_URL_MAINNET } from "./middleware/politeiaapi";
-import { DCRDATA_URL_TESTNET, DCRDATA_URL_MAINNET } from "./middleware/dcrdataapi";
+import { DCRDATA_URL_TESTNET, DCRDATA_URL_MAINNET } from "./middleware/eacrdataapi";
 import { dateToLocal, dateToUTC } from "./helpers/dateFormat";
 import { MIN_RELAY_FEE, DCR, ATOMS, UNIT_DIVISOR, TESTNET, MAINNET } from "constants";
 import * as wallet from "wallet";
@@ -203,19 +203,19 @@ const getTxTypeStr = type => (TRANSACTION_TYPES)[type];
 export const txURLBuilder= createSelector(
   [ network ],
   (network) =>
-    (txHash) => `https://${network !== TESTNET ? "dcrdata" : "testnet"}.decred.org/tx/${txHash}`
+    (txHash) => `https://${network !== TESTNET ? "eacrdata" : "testnet"}.eacred.org/tx/${txHash}`
 );
 
 export const blockURLBuilder= createSelector(
   [ network ],
   (network) =>
-    (txHash) => `https://${network !== TESTNET ? "dcrdata" : "testnet"}.decred.org/block/${txHash}`
+    (txHash) => `https://${network !== TESTNET ? "eacrdata" : "testnet"}.eacred.org/block/${txHash}`
 );
 
 export const txOutURLBuilder = createSelector(
   [ network ],
   (network) =>
-    (txHash, outputIdx) => `https://${network !== "testnet" ? "explorer" : network}.dcrdata.org/tx/${txHash}/out/${outputIdx}`
+    (txHash, outputIdx) => `https://${network !== "testnet" ? "explorer" : network}.eacrdata.org/tx/${txHash}/out/${outputIdx}`
 );
 
 export const decodedTransactions = get([ "grpc", "decodedTransactions" ]);
@@ -956,7 +956,7 @@ export const politeiaURL = createSelector(
   (isTestNet) => isTestNet ? POLITEIA_URL_TESTNET : POLITEIA_URL_MAINNET
 );
 
-export const dcrdataURL = createSelector(
+export const eacrdataURL = createSelector(
   [ isTestNet ],
   (isTestNet) => isTestNet ? DCRDATA_URL_TESTNET : DCRDATA_URL_MAINNET
 );
@@ -966,7 +966,7 @@ export const politeiaEnabled = compose(
   allowedExternalRequests
 );
 
-export const dcrdataEnabled = compose(
+export const eacrdataEnabled = compose(
   l => l.indexOf(EXTERNALREQUEST_DCRDATA) > -1,
   allowedExternalRequests
 );

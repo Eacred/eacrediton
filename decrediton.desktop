@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Name=Decrediton
 Comment=Decrediton the Decred wallet
-Exec=decrediton %U
+Exec=eacrediton %U
 Terminal=false
 Type=Application
-Icon=decred
-MimeType=x-scheme-handler/decred;
+Icon=eacred
+MimeType=x-scheme-handler/eacred;
 Categories=Office;Finance;

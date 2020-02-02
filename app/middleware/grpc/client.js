@@ -9,7 +9,7 @@ var services = require("../walletrpc/api_grpc_pb.js");
 const getServiceClient = (clientClass) => (isTestNet, walletPath, address, port, cb) => {
   var cert = getWalletCert(getWalletPath(isTestNet, walletPath));
   if (cert == "") {
-    return cb(null, "Unable to load dcrwallet certificate.  dcrwallet not running?");
+    return cb(null, "Unable to load eacrwallet certificate.  eacrwallet not running?");
   }
   var creds = grpc.credentials.createSsl(cert);
   var client = new clientClass(address + ":" + port, creds);

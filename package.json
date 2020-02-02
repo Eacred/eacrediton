@@ -1,5 +1,5 @@
 {
-  "name": "decrediton",
+  "name": "eacrediton",
   "productName": "Decrediton",
   "version": "1.5.1",
   "description": "Decrediton based on React, React Router, Webpack, React Hot Loader for rapid application development",
@@ -27,7 +27,7 @@
     "package-dev-linux": "npm run build && ./node_modules/.bin/electron-builder build --linux tar.gz",
     "cleanup": "mop -v",
     "flow": "flow",
-    "i18n-prepare-untranslated": "node ./scripts/prepareUntranslated.js && ./node_modules/.bin/rip json2pot 'app/i18n/extracted/**/*.json' -c id -o app/i18n/pot/decrediton.pot",
+    "i18n-prepare-untranslated": "node ./scripts/prepareUntranslated.js && ./node_modules/.bin/rip json2pot 'app/i18n/extracted/**/*.json' -c id -o app/i18n/pot/eacrediton.pot",
     "i18n-assemble-translated": "node ./scripts/assembleTranslated.js && ./node_modules/.bin/rip po2json 'app/i18n/po/*.po' -m 'app/i18n/extracted/**/*.json' -c id -o app/i18n/translations --indentation 2 --sort-by-id",
     "i18n-check-docs": "node ./scripts/docsTranslationStatus.js",
     "i18n-check-dupes": "node ./scripts/checkDuplicateTranslationIds.js"
@@ -127,20 +127,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/decred/decrediton.git"
+    "url": "git+https://github.com/Eacred/eacrediton.git"
   },
   "author": {
     "name": "The Decred developers",
-    "email": "info@decred.org",
-    "url": "https://github.com/decred"
+    "email": "info@eacred.org",
+    "url": "https://github.com/Eacred"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/decred/decrediton/issues"
+    "url": "https://github.com/Eacred/eacrediton/issues"
   },
   "keywords": [
-    "decred",
-    "decrediton",
+    "eacred",
+    "eacrediton",
     "electron",
     "react",
     "react-router",
@@ -148,7 +148,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/decred/decrediton#readme",
+  "homepage": "https://github.com/Eacred/eacrediton#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
@@ -234,7 +234,7 @@
     "is-running": "^2.1.0",
     "lodash": "^4.17.14",
     "mv": "^2.1.1",
-    "node-addon-loader": "decred/node-addon-loader#master",
+    "node-addon-loader": "eacred/node-addon-loader#master",
     "nouislider": "^12.0.0",
     "prop-types": "^15.7.2",
     "qr-image": "^3.2.0",

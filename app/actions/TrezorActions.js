@@ -6,7 +6,7 @@ import fs from "fs";
 import { sprintf } from "sprintf-js";
 import { rawHashToHex, rawToHex, hexToRaw, str2utf8hex, hex2b64 } from "helpers";
 import { publishTransactionAttempt } from "./ControlActions";
-import { model1_decred_homescreen, messages } from "helpers/trezor";
+import { model1_eacred_homescreen, messages } from "helpers/trezor";
 import { getWalletCfg } from "config";
 
 import { EXTERNALREQUEST_TREZOR_BRIDGE } from "main_dev/externalRequests";
@@ -18,7 +18,7 @@ import {
 
 const hardeningConstant = 0x80000000;
 
-// Right now (2018-07-06) dcrwallet only supports a single account on watch only
+// Right now (2018-07-06) eacrwallet only supports a single account on watch only
 // wallets. Therefore we are limited to using this single account when signing
 // transactions via trezor.
 const WALLET_ACCOUNT = 0;
@@ -239,7 +239,7 @@ export const TRZ_CANCELOPERATION_FAILED = "TRZ_CANCELOPERATION_FAILED";
 
 // Note that calling this function while no pin/passphrase operation is running
 // will attempt to steal the device, cancelling operations from apps *other
-// than decrediton*.
+// than eacrediton*.
 export const cancelCurrentOperation = () => async (dispatch, getState) => {
   const device = selectors.trezorDevice(getState());
   const { trezor: { pinCallBack, passPhraseCallBack, wordCallBack } } = getState();
@@ -298,8 +298,8 @@ export const submitWord = (word) => (dispatch, getState) => {
   wordCallBack(null, word);
 };
 
-// checkTrezorIsDcrwallet verifies whether the wallet currently running on
-// dcrwallet (presumably a watch only wallet created from a trezor provided
+// checkTrezorIsEacrwallet verifies whether the wallet currently running on
+// eacrwallet (presumably a watch only wallet created from a trezor provided
 // xpub) is the same wallet as the one of the currently connected trezor. This
 // function throws an error if they are not the same.
 // This is useful for making sure, prior to performing some wallet related
@@ -308,11 +308,11 @@ export const submitWord = (word) => (dispatch, getState) => {
 // Note that this might trigger pin/passphrase modals, depending on the current
 // trezor configuration.
 // The way the check is performed is by generating the first address from the
-// trezor wallet and then validating this address agains dcrwallet, ensuring
+// trezor wallet and then validating this address agains eacrwallet, ensuring
 // this is an owned address at the appropriate branch/index.
 // This check is only valid for a single session (ie, a single execution of
 // `deviceRun`) as the physical device might change between sessions.
-const checkTrezorIsDcrwallet = (session) => async (dispatch, getState) => {
+const checkTrezorIsEacrwallet = (session) => async (dispatch, getState) => {
   const { grpc: { walletService } } = getState();
   const chainParams = selectors.chainParams(getState());
 
@@ -323,7 +323,7 @@ const checkTrezorIsDcrwallet = (session) => async (dispatch, getState) => {
   const addrValidResp = await wallet.validateAddress(walletService, addr);
   if (!addrValidResp.getIsValid()) throw "Trezor provided an invalid address " + addr;
 
-  if (!addrValidResp.getIsMine()) throw "Trezor and dcrwallet not running from the same extended public key";
+  if (!addrValidResp.getIsMine()) throw "Trezor and eacrwallet not running from the same extended public key";
 
   if (addrValidResp.getIndex() !== 0) throw "Wallet replied with wrong index.";
 };
@@ -354,7 +354,7 @@ export const signTransactionAttemptTrezor = (rawUnsigTx, constructTxResponse) =>
       changeIndex, inputTxs));
 
     const signedRaw = await deviceRun(dispatch, getState, device, async session => {
-      await dispatch(checkTrezorIsDcrwallet(session));
+      await dispatch(checkTrezorIsEacrwallet(session));
 
       const signedResp = await session.signTx(txInfo.inputs, txInfo.outputs,
         refTxs, chainParams.trezorCoinName, 0);
@@ -392,7 +392,7 @@ export const signMessageAttemptTrezor = (address, message) => async (dispatch, g
       chainParams.HDCoinType);
 
     const signedMsg = await deviceRun(dispatch, getState, device, async session => {
-      await dispatch(checkTrezorIsDcrwallet(session));
+      await dispatch(checkTrezorIsEacrwallet(session));
 
       return await session.signMessage(address_n, str2utf8hex(message),
         chainParams.trezorCoinName, false);
@@ -407,7 +407,7 @@ export const signMessageAttemptTrezor = (address, message) => async (dispatch, g
 
 };
 
-// walletTxToBtcjsTx converts a tx decoded by the decred wallet (ie,
+// walletTxToBtcjsTx converts a tx decoded by the eacred wallet (ie,
 // returned from the decodeRawTransaction call) into a bitcoinjs-compatible
 // transaction (to be used in trezor)
 export const walletTxToBtcjsTx = (tx, changeIndex, inputTxs) => async (dispatch, getState) => {
@@ -454,7 +454,7 @@ export const walletTxToBtcjsTx = (tx, changeIndex, inputTxs) => async (dispatch,
       sequence: inp.getSequence(),
       address_n: addressPath(addrIndex, addrBranch, WALLET_ACCOUNT,
         chainParams.HDCoinType),
-      decred_tree: inp.getTree()
+      eacred_tree: inp.getTree()
     });
   }
 
@@ -483,7 +483,7 @@ export const walletTxToBtcjsTx = (tx, changeIndex, inputTxs) => async (dispatch,
       script_type: "PAYTOADDRESS", // needs to change on OP_RETURNs
       address: addr,
       address_n: address_n,
-      decred_script_version: outp.getVersion()
+      eacred_script_version: outp.getVersion()
     });
   }
 
@@ -498,21 +498,21 @@ export const walletTxToBtcjsTx = (tx, changeIndex, inputTxs) => async (dispatch,
   return txInfo;
 };
 
-// walletTxToRefTx converts a tx decoded by the decred wallet into a trezor
+// walletTxToRefTx converts a tx decoded by the eacred wallet into a trezor
 // RefTransaction object to be used with SignTx.
 export function walletTxToRefTx(tx) {
   const inputs = tx.getInputsList().map(inp => ({
     amount: inp.getAmountIn(),
     prev_hash: rawHashToHex(inp.getPreviousTransactionHash()),
     prev_index: inp.getPreviousTransactionIndex(),
-    decred_tree: inp.getTree(),
+    eacred_tree: inp.getTree(),
     sequence: inp.getSequence()
   }));
 
   const bin_outputs = tx.getOutputsList().map(outp => ({
     amount: outp.getValue(),
     script_pubkey: rawToHex(outp.getScript()),
-    decred_script_version: outp.getVersion()
+    eacred_script_version: outp.getVersion()
   }));
 
   const txInfo = {
@@ -592,7 +592,7 @@ export const changeToDecredHomeScreen = () => async (dispatch, getState) => {
 
   try {
     await deviceRun(dispatch, getState, device, async session => {
-      await session.changeHomescreen(model1_decred_homescreen);
+      await session.changeHomescreen(model1_eacred_homescreen);
     });
     dispatch({ type: TRZ_CHANGEHOMESCREEN_SUCCESS });
   } catch (error) {

@@ -12,14 +12,14 @@ export function getAppDataDirectory() {
   if (os.platform() == "win32") {
     return path.join(os.homedir(), "AppData", "Local", "Decrediton");
   } else if (process.platform === "darwin") {
-    return path.join(os.homedir(), "Library","Application Support","decrediton");
+    return path.join(os.homedir(), "Library","Application Support","eacrediton");
   } else {
-    return path.join(os.homedir(),".config","decrediton");
+    return path.join(os.homedir(),".config","eacrediton");
   }
 }
 
-// getGlobalCfgPath gets decrediton's config.json file.
-// example of result in unix: ~/.config/decrediton/config.json
+// getGlobalCfgPath gets eacrediton's config.json file.
+// example of result in unix: ~/.config/eacrediton/config.json
 export function getGlobalCfgPath() {
   return path.resolve(getAppDataDirectory(), "config.json");
 }
@@ -30,7 +30,7 @@ export function getWalletsDirectoryPath() {
 }
 
 // getWalletsDirectoryPathNetwork gets the wallets directory.
-// Example in unix if testnet equals true: ~/.config/decrediton/wallets/testnet
+// Example in unix if testnet equals true: ~/.config/eacrediton/wallets/testnet
 export function getWalletsDirectoryPathNetwork(testnet) {
   return path.join(getAppDataDirectory(), "wallets", testnet ? TESTNET : MAINNET);
 }
@@ -42,7 +42,7 @@ export function getWalletPath(testnet, walletName = "") {
 }
 
 // getWalletDb Returns the wallet.db file from a specific wallet.
-// walletPath represents the wallet name decrediton has loaded.
+// walletPath represents the wallet name eacrediton has loaded.
 export function getWalletDb(testnet, walletPath) {
   return path.join(
     getWalletsDirectoryPath(), testnet ? TESTNET : MAINNET,
@@ -50,31 +50,31 @@ export function getWalletDb(testnet, walletPath) {
   );
 }
 
-// dcrdCfg gets the dcrd.conf file from a specified path
-export function dcrdCfg(configPath) {
-  return path.resolve(configPath, "dcrd.conf");
+// eacrdCfg gets the eacrd.conf file from a specified path
+export function eacrdCfg(configPath) {
+  return path.resolve(configPath, "eacrd.conf");
 }
 
-// dcrwalletCfg gets the dcrwallet.conf file from a specified path
-export function dcrwalletCfg(configPath) {
-  return path.resolve(configPath, "dcrwallet.conf");
+// eacrwalletCfg gets the eacrwallet.conf file from a specified path
+export function eacrwalletCfg(configPath) {
+  return path.resolve(configPath, "eacrwallet.conf");
 }
 
-// getDcrdPath gets the default dcrd path.
-export function getDcrdPath() {
+// getEcrdPath gets the default eacrd path.
+export function getEcrdPath() {
   if (os.platform() == "win32") {
-    return path.join(os.homedir(), "AppData", "Local", "Dcrd");
+    return path.join(os.homedir(), "AppData", "Local", "Ecrd");
   } if (process.platform === "darwin") {
-    return path.join(os.homedir(), "Library","Application Support","dcrd");
+    return path.join(os.homedir(), "Library","Application Support","eacrd");
   } else {
-    return path.join(os.homedir(),".dcrd");
+    return path.join(os.homedir(),".eacrd");
   }
 }
 
-// getDcrdRpcCert gets rpc.cert file from a specified path.
+// getEcrdRpcCert gets rpc.cert file from a specified path.
 // if no path is informed it gets from the default path.
-export function getDcrdRpcCert (appDataPath) {
-  return path.resolve(appDataPath ? appDataPath : getDcrdPath(), "rpc.cert");
+export function getEcrdRpcCert (appDataPath) {
+  return path.resolve(appDataPath ? appDataPath : getEcrdPath(), "rpc.cert");
 }
 
 export function getExecutablePath(name, custombinpath) {
@@ -93,8 +93,8 @@ export function getDirectoryLogs(dir) {
 }
 
 // checkAndInitWalletCfg checks for existing old wallet.db directories and copy its
-// wallet.db file to the new decrediton wallets path.
-// TODO deprecate this code as most decrediton are updated to 1.4.0 version.
+// wallet.db file to the new eacrediton wallets path.
+// TODO deprecate this code as most eacrediton are updated to 1.4.0 version.
 export function checkAndInitWalletCfg (testnet) {
   const walletDirectory = getWalletPath(testnet, "default-wallet");
   const configJson = path.join(walletDirectory, "config.json");

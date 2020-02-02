@@ -30,7 +30,7 @@ const DaemonLoadingBody = ({
   syncInput,
   passPhrase,
   intl,
-  lastDcrwalletLogLine,
+  lastEacrwalletLogLine,
   onSetPassPhrase,
   onKeyDown,
   onRPCSync,
@@ -106,11 +106,11 @@ const DaemonLoadingBody = ({
         {daemonWarning && getCurrentBlockCount <= 0  && (
           <>
             <div className="get-started-last-log-lines">
-              <div className="last-dcrwallet-log-line">{daemonWarning}</div>
+              <div className="last-eacrwallet-log-line">{daemonWarning}</div>
             </div>
             <div className="advanced-page-form">
               <div className="advanced-daemon-row">
-                <T id="getStarted.longWaitWarning" m="You are currently upgrading to a new dcrd version.  Typically, this one-time update will take 10-15 minutes on an average machine."/>
+                <T id="getStarted.longWaitWarning" m="You are currently upgrading to a new eacrd version.  Typically, this one-time update will take 10-15 minutes on an average machine."/>
               </div>
             </div>
           </>
@@ -145,7 +145,7 @@ const DaemonLoadingBody = ({
           </div> : (
             walletName &&
             <div className="get-started-last-log-lines">
-              <div className="last-dcrwallet-log-line">{lastDcrwalletLogLine}</div>
+              <div className="last-eacrwallet-log-line">{lastEacrwalletLogLine}</div>
             </div>
           )
         }

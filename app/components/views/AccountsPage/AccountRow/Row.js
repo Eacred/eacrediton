@@ -4,7 +4,7 @@ import "style/Fonts.less";
 import "style/AccountRow.less";
 
 // default account's number equals 2^31-1.
-// source https://github.com/decred/dcrwallet/blob/master/wallet/udb/addressmanager.go#L43
+// source https://github.com/Eacred/eacrwallet/blob/master/wallet/udb/addressmanager.go#L43
 const isImported = ({ accountNumber }) => accountNumber === Math.pow(2, 31)-1;
 const Header = ({
   account,

@@ -25,8 +25,8 @@ function countDecimalDigits(s) {
 }
 
 /**
- * DcrInput provides a way to receive decred amount inputs. Instead of the usual
- * value/onChange pair, it uses amount/onChangeAmount to track values in decred
+ * DcrInput provides a way to receive eacred amount inputs. Instead of the usual
+ * value/onChange pair, it uses amount/onChangeAmount to track values in eacred
  * atoms, correctly accounting for the currently used currencyDisplay, floating
  * conversions, etc.
  *

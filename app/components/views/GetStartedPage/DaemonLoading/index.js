@@ -1,6 +1,6 @@
 import DaemonLoadingForm from "./Form";
 import ReactTimeout from "react-timeout";
-import { getDcrwalletLastLogLine } from "wallet";
+import { getEacrwalletLastLogLine } from "wallet";
 
 function parseLogLine(line) {
   const res = /^[\d :\-.]+ \[...\] (.+)$/.exec(line);
@@ -18,8 +18,8 @@ class DaemonLoading extends React.Component {
     return {
       showLongWaitMessage: false,
       neededBlocksDeterminedAt: new Date(),
-      lastDcrdLogLine: "",
-      lastDcrwalletLogLine: "",
+      lastEcrdLogLine: "",
+      lastEacrwalletLogLine: "",
       passPhrase: "",
       hasAttemptedDiscover: false
     };
@@ -32,12 +32,12 @@ class DaemonLoading extends React.Component {
   componentDidMount() {
     this.props.setInterval(() => {
       Promise
-        .all([ getDcrwalletLastLogLine() ])
-        .then(([ dcrwalletLine ]) => {
-          const lastDcrwalletLogLine = parseLogLine(dcrwalletLine);
-          if (lastDcrwalletLogLine !== this.lastDcrwalletLogLine)
+        .all([ getEacrwalletLastLogLine() ])
+        .then(([ eacrwalletLine ]) => {
+          const lastEacrwalletLogLine = parseLogLine(eacrwalletLine);
+          if (lastEacrwalletLogLine !== this.lastEacrwalletLogLine)
           {
-            this.lastDcrwalletLogLine = lastDcrwalletLogLine;
+            this.lastEacrwalletLogLine = lastEacrwalletLogLine;
           }
         });
     }, 2000);
@@ -51,7 +51,7 @@ class DaemonLoading extends React.Component {
 
   render() {
     const { showLongWaitMessage, passPhrase, hasAttemptedDiscover } = this.state;
-    const { onSetPassPhrase, onRPCSync, onKeyDown, lastDcrwalletLogLine } = this;
+    const { onSetPassPhrase, onRPCSync, onKeyDown, lastEacrwalletLogLine } = this;
     const secondsLeft = this.props.getEstimatedTimeLeft;
     let finishDateEstimation = null;
     if (secondsLeft !== null) {
@@ -64,7 +64,7 @@ class DaemonLoading extends React.Component {
           ...this.props,
           showLongWaitMessage,
           finishDateEstimation,
-          lastDcrwalletLogLine,
+          lastEacrwalletLogLine,
           passPhrase,
           hasAttemptedDiscover,
           onSetPassPhrase,
