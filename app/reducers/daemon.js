@@ -16,7 +16,7 @@ import {
   SHUTDOWN_REQUESTED,
   SET_CREDENTIALS_APPDATA_ERROR,
   AVAILABLE_WALLETS,
-  DECREDITON_VERSION,
+  EacredITON_VERSION,
   FATAL_DAEMON_ERROR,
   FATAL_WALLET_ERROR,
   DAEMON_WARNING,
@@ -34,7 +34,7 @@ import {
 
 export default function version(state = {}, action) {
   switch (action.type) {
-  case DECREDITON_VERSION:
+  case EacredITON_VERSION:
     return { ...state,
       updateAvailable: action.msg
     };

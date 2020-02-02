@@ -142,7 +142,7 @@ checkAndInitWalletCfg(true);
 checkAndInitWalletCfg(false);
 
 logger.log("info", "Using config/data from:" + app.getPath("userData"));
-logger.log("info", "Versions: Decrediton: %s, Electron: %s, Chrome: %s",
+logger.log("info", "Versions: Eacrediton: %s, Electron: %s, Chrome: %s",
   app.getVersion(), process.versions.electron, process.versions.chrome);
 
 process.on("uncaughtException", err => {
@@ -385,7 +385,7 @@ app.on("ready", async () => {
     await installExtensions();
     await setupProxy(logger);
   }
-  windowOpts.title = "Decrediton - " + app.getVersion();
+  windowOpts.title = "Eacrediton - " + app.getVersion();
 
   mainWindow = new BrowserWindow(windowOpts);
   installSessionHandlers(logger);

@@ -44,7 +44,7 @@ export default ({
         <div className="go-back-screen-button-area">
           <Tooltip text={ <T id="releaseNotes.goBack" m="Go back" /> }><div className="go-back-screen-button" onClick={onHideReleaseNotes}/></Tooltip>
         </div>
-        <T id="getStarted.releaseNotesTitle" m="Decrediton v{version} Released" values={{ version }}/>
+        <T id="getStarted.releaseNotesTitle" m="Eacrediton v{version} Released" values={{ version }}/>
         <div className="release-notes-version-navigation">
           <a href="#" onClick={onNewerVersion}><T id="getStarted.releaseNotes.NewerVersion" m="Newer Version"/></a>
           <a href="#" onClick={onOlderVersion}><T id="getStarted.releaseNotes.OlderVersion" m="Older Version"/></a>

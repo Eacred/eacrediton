@@ -92,7 +92,7 @@ const SettingsPage = ({
             modalTitle={<T id="settings.resetNetworkTitle" m="Reset required" />}
             buttonLabel={<T id="settings.save" m="Save" />}
             modalContent={
-              <T id="settings.resetNetworkContent" m="The setting you have chosen to change requires Decrediton to be restarted.  Please confirm this action before proceeding."/>}
+              <T id="settings.resetNetworkContent" m="The setting you have chosen to change requires Eacrediton to be restarted.  Please confirm this action before proceeding."/>}
             disabled={!areSettingsDirty}
             size="large"
             block={false}

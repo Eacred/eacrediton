@@ -1,8 +1,8 @@
 {
   "name": "eacrediton",
-  "productName": "Decrediton",
+  "productName": "Eacrediton",
   "version": "1.5.1",
-  "description": "Decrediton based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Eacrediton based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
@@ -64,7 +64,7 @@
     ]
   },
   "build": {
-    "appId": "com.Electron.Decrediton",
+    "appId": "com.Electron.Eacrediton",
     "artifactName": "${productName}-v${version}.${ext}",
     "dmg": {
       "contents": [
@@ -102,9 +102,9 @@
     ],
     "mac": {
       "extendInfo": {
-        "CFBundleExecutable": "Decrediton",
-        "CFBundleDisplayName": "Decrediton",
-        "CFBundleName": "Decrediton"
+        "CFBundleExecutable": "Eacrediton",
+        "CFBundleDisplayName": "Eacrediton",
+        "CFBundleName": "Eacrediton"
       }
     },
     "win": {
@@ -130,7 +130,7 @@
     "url": "git+https://github.com/Eacred/eacrediton.git"
   },
   "author": {
-    "name": "The Decred developers",
+    "name": "The Eacred developers",
     "email": "info@eacred.org",
     "url": "https://github.com/Eacred"
   },

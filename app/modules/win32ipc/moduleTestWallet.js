@@ -9,7 +9,7 @@ const os = require("os");
 const fs = require("fs");
 
 //const pipeFname = "\\\\.\\pipe\\eacrwallet-test";
-const walletConfPath = path.join(os.homedir(), "AppData", "Local", "Decrediton",
+const walletConfPath = path.join(os.homedir(), "AppData", "Local", "Eacrediton",
   "wallets", "testnet", "default-wallet", "eacrwallet.conf");
 
 function sleep(milli) {

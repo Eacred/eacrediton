@@ -30,7 +30,7 @@ class LoaderBarBottom extends React.Component {
     return ( getCurrentBlockCount && !getDaemonSynced &&
       <div className="loader-bar-bottom">
         <div className="loader-bar-estimation">
-          <span className="normal">{finishDateEstimation ? <T id="getStarted.chainLoading.syncEstimation.small" m="Loading Decred blockchain, completion estimated"/> : null}</span>
+          <span className="normal">{finishDateEstimation ? <T id="getStarted.chainLoading.syncEstimation.small" m="Loading Eacred blockchain, completion estimated"/> : null}</span>
           <span className="bold"> {finishDateEstimation ? <FormattedRelative value={finishDateEstimation}/> : null} ({getCurrentBlockCount} / {getNeededBlocks})</span>
         </div>
         <LinearProgressSmall

@@ -1,7 +1,7 @@
 import { FormattedMessage as T } from "react-intl";
 import { StandalonePage, StandaloneHeader } from "layout";
 import AccountRow from "./AccountRow";
-import { DecredLoading } from "indicators";
+import { EacredLoading } from "indicators";
 import { InfoDocModalButton, PassphraseModalButton } from "buttons";
 import { AddAccountModal } from "modals";
 import { WatchOnlyWarnNotification, Subtitle } from "shared";
@@ -53,7 +53,7 @@ const AccountsList = ({
   hasTickets
 }) => (
   <StandalonePage header={<AccountsListHeader {...{ onGetNextAccountAttempt, isCreateAccountDisabled }} />}>
-    { isLoading ? <DecredLoading/> :
+    { isLoading ? <EacredLoading/> :
       <>
         <Subtitle title={subtitleWalletName({ walletName })} className={"is-row"} children={subtitleInfoIcon()} />
         <div className="account-content-nest">

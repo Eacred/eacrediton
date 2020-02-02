@@ -8,7 +8,7 @@ export default ({ cancelCustomPrivacy, acceptCustomPrivacy, ...props }) => (
       <T id="privacy.custom.title" m={"Custom Privacy Options"}/>
     </div>
     <div className="language-select-title-sub">
-      <T id="privacy.custom.titleSub" m={"Select which external requests Decrediton is allowed to make. You can change this later on the app settings page."}/>
+      <T id="privacy.custom.titleSub" m={"Select which external requests Eacrediton is allowed to make. You can change this later on the app settings page."}/>
     </div>
     <div className="get-started-custom-privacy-settings" >
       <PrivacySettings {...props} />

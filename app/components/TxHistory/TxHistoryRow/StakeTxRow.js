@@ -4,7 +4,7 @@ import { createElement as h } from "react";
 import { Balance, Tooltip } from "shared";
 import { diffBetweenTwoTs } from "helpers/dateFormat";
 import { timeMessage } from "./index";
-import * as txTypes from "constants/Decrediton";
+import * as txTypes from "constants/Eacrediton";
 
 const messageByType = {
   [txTypes.TICKET] : <T id="transaction.type.ticket" m="Purchased" />,

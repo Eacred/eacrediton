@@ -1,6 +1,6 @@
-# Decrediton i18n & l12n
+# Eacrediton i18n & l12n
 
-This file explains the general layout of how internationalization (i18n) and localization (l12n) work in Decrediton.
+This file explains the general layout of how internationalization (i18n) and localization (l12n) work in Eacrediton.
 
 ## During Coding
 
@@ -143,7 +143,7 @@ import Balance from "../../Balance";
 
 ## Libraries
 
-Decrediton implements i18n by using the tools provided by the [react-intl](https://github.com/yahoo/react-intl) ecosystem.
+Eacrediton implements i18n by using the tools provided by the [react-intl](https://github.com/yahoo/react-intl) ecosystem.
 
 ## Filesystem Layout
 
@@ -185,7 +185,7 @@ $ export TX_TOKEN="<your api token>"
 $ tx pull -a
 ```
 
-**:exclamation: Note**: I (@matheusd) haven't personally tested the `tx push` command within the Decrediton project, so pushing might wrongly replace the resources in Transifex. Use with care!
+**:exclamation: Note**: I (@matheusd) haven't personally tested the `tx push` command within the Eacrediton project, so pushing might wrongly replace the resources in Transifex. Use with care!
 
 ## Assembling translated files
 

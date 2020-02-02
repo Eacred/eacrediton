@@ -581,7 +581,7 @@ export const TRZ_CHANGEHOMESCREEN_ATTEMPT = "TRZ_CHANGEHOMESCREEN_ATTEMPT";
 export const TRZ_CHANGEHOMESCREEN_FAILED =  "TRZ_CHANGEHOMESCREEN_FAILED";
 export const TRZ_CHANGEHOMESCREEN_SUCCESS = "TRZ_CHANGEHOMESCREEN_SUCCESS";
 
-export const changeToDecredHomeScreen = () => async (dispatch, getState) => {
+export const changeToEacredHomeScreen = () => async (dispatch, getState) => {
   const device = selectors.trezorDevice(getState());
   if (!device) {
     dispatch({ error: "Device not connected", type:  TRZ_TOGGLEPASSPHRASEPROTECTION_FAILED });

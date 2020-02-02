@@ -1,7 +1,7 @@
 import { RegularTxRowOfClass as regular } from "./RegularTxRow";
 import { StakeTxRowOfType as stake } from "./StakeTxRow";
 import { defineMessages, injectIntl } from "react-intl";
-import * as txTypes from "constants/Decrediton";
+import * as txTypes from "constants/Eacrediton";
 import "style/TxHistory.less";
 
 const TxRowByType = {

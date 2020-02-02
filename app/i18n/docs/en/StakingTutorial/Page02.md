@@ -2,4 +2,4 @@ When a ticket is purchased, the cost of the ticket is locked in your wallet unti
 
 When a proposal is set for a vote in Politeia, a snapshot of the ticket pool will be taken at the time of voting. All tickets will have the right to vote on the proposal in an off chain process.
 
-As block validation is immutable, decisions made on all voted tickets can be publicly tracked. Active participation in staking helps secure Decred network’s, network, ensure quality Proof-of-Work, and determine the future direction of Decred.
+As block validation is immutable, decisions made on all voted tickets can be publicly tracked. Active participation in staking helps secure Eacred network’s, network, ensure quality Proof-of-Work, and determine the future direction of Eacred.

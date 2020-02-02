@@ -8,7 +8,7 @@ export default () => (
       <T id="home.noTransactions.receiveLink" m="Generate a DCR Address for receiving funds" /> →
     </Link>
     <ExternalLink href="https://eacred.org/exchanges" className="buy">
-      <T id="home.noTransactions.buyFromExchanges" m="Buy Decred from Exchanges" /> →
+      <T id="home.noTransactions.buyFromExchanges" m="Buy Eacred from Exchanges" /> →
     </ExternalLink>
   </div>
 );

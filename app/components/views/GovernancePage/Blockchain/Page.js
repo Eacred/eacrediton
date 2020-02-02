@@ -17,7 +17,7 @@ const VotingPrefsPage = ({
       <div>
         <div className="proposals-community-header-title"><T id="votingPreferences.title" m="Consensus Changes" /></div>
         <p className="proposals-community-header-description">
-          <T id="votingPreferences.description" m="Consensus changes refer to the on-chain governance aspect of Decred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets." />
+          <T id="votingPreferences.description" m="Consensus changes refer to the on-chain governance aspect of Eacred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets." />
         </p>
       </div>
       <div className="links">

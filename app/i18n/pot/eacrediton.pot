@@ -98,9 +98,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/modals/AboutModal/AboutModal.json
 #. [aboutModal.paragraph1]
 #. defaultMessage is:
-#. A cross platform GUI Wallet for Decred written in node.js using Electron
+#. A cross platform GUI Wallet for Eacred written in node.js using Electron
 msgctxt "aboutModal.paragraph1"
-msgid "A cross platform GUI Wallet for Decred written in node.js using Electron"
+msgid "A cross platform GUI Wallet for Eacred written in node.js using Electron"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/StakePools/Form.json
@@ -146,25 +146,25 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GetStartedPage/messages.json
 #. [help.about]
 #. defaultMessage is:
-#. About Decrediton
+#. About Eacrediton
 msgctxt "help.about"
-msgid "About Decrediton"
+msgid "About Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 #. [help.about.eacrediton]
 #. defaultMessage is:
-#. About Decrediton
+#. About Eacrediton
 msgctxt "help.about.eacrediton"
-msgid "About Decrediton"
+msgid "About Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/static/menus.json
-#. [appMenu.aboutDecrediton]
+#. [appMenu.aboutEacrediton]
 #. defaultMessage is:
-#. About Decrediton
-msgctxt "appMenu.aboutDecrediton"
-msgid "About Decrediton"
+#. About Eacrediton
+msgctxt "appMenu.aboutEacrediton"
+msgid "About Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/PrivacyPage/CustomPrivacyOptions.json
@@ -747,9 +747,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/HomePage/tables/NoTransactionsLinks.json
 #. [home.noTransactions.buyFromExchanges]
 #. defaultMessage is:
-#. Buy Decred from Exchanges
+#. Buy Eacred from Exchanges
 msgctxt "home.noTransactions.buyFromExchanges"
-msgid "Buy Decred from Exchanges"
+msgid "Buy Eacred from Exchanges"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/LNPage/ChannelsTab/OpenChannel.json
@@ -1091,9 +1091,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/FatalErrorPage.json
 #. [fatal.button]
 #. defaultMessage is:
-#. Close Decrediton
+#. Close Eacrediton
 msgctxt "fatal.button"
-msgid "Close Decrediton"
+msgid "Close Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/LNPage/ChannelsTab/ClosedChannel.json
@@ -1339,9 +1339,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GovernancePage/Blockchain/Page.json
 #. [votingPreferences.description]
 #. defaultMessage is:
-#. Consensus changes refer to the on-chain governance aspect of Decred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets.
+#. Consensus changes refer to the on-chain governance aspect of Eacred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets.
 msgctxt "votingPreferences.description"
-msgid "Consensus changes refer to the on-chain governance aspect of Decred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets."
+msgid "Consensus changes refer to the on-chain governance aspect of Eacred. This means deciding whether to adopt changes to the consensus rules of the network. Participation in voting requires (PoS) tickets."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
@@ -1660,73 +1660,73 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/SettingsPage/PrivacySettings.json
 #. [settings.privacy.eacrdata.label]
 #. defaultMessage is:
-#. Decred Block Explorer
+#. Eacred Block Explorer
 msgctxt "settings.privacy.eacrdata.label"
-msgid "Decred Block Explorer"
+msgid "Eacred Block Explorer"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 #. [help.constitution.modal.title]
 #. defaultMessage is:
-#. Decred Constitution
+#. Eacred Constitution
 msgctxt "help.constitution.modal.title"
-msgid "Decred Constitution"
+msgid "Eacred Constitution"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/HelpPage/LinksTab/index.json
 #. [help.constitution.subtitle]
 #. defaultMessage is:
-#. Decred Project Constitution
+#. Eacred Project Constitution
 msgctxt "help.constitution.subtitle"
-msgid "Decred Project Constitution"
+msgid "Eacred Project Constitution"
 msgstr ""
 
 #: app/i18n/extracted/app/components/modals/AboutModal/AboutModal.json
 #. [aboutModal.paragraph2b]
 #. defaultMessage is:
-#. Decred contributors
+#. Eacred contributors
 msgctxt "aboutModal.paragraph2b"
-msgid "Decred contributors"
+msgid "Eacred contributors"
 msgstr ""
 
 #: app/i18n/extracted/app/components/modals/AboutModal/AboutModal.json
 #. [aboutModal.eacrediton]
 #. defaultMessage is:
-#. Decrediton
+#. Eacrediton
 msgctxt "aboutModal.eacrediton"
-msgid "Decrediton"
+msgid "Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/static/menus.json
 #. [appMenu.eacrediton]
 #. defaultMessage is:
-#. Decrediton
+#. Eacrediton
 msgctxt "appMenu.eacrediton"
-msgid "Decrediton"
+msgid "Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/app/components/modals/AboutModal/AboutModal.json
 #. [aboutModal.paragraph2a]
 #. defaultMessage is:
-#. Decrediton is free and open source software, developed and designed by the global team of
+#. Eacrediton is free and open source software, developed and designed by the global team of
 msgctxt "aboutModal.paragraph2a"
-msgid "Decrediton is free and open source software, developed and designed by the global team of"
+msgid "Eacrediton is free and open source software, developed and designed by the global team of"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/TicketsPage/PurchaseTab/TicketAutoBuyer/Form.json
 #. [tickets.startAutoBuyerConfirmation.description]
 #. defaultMessage is:
-#. Decrediton must remain running for tickets to be automatically purchased.
+#. Eacrediton must remain running for tickets to be automatically purchased.
 msgctxt "tickets.startAutoBuyerConfirmation.description"
-msgid "Decrediton must remain running for tickets to be automatically purchased."
+msgid "Eacrediton must remain running for tickets to be automatically purchased."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/ReleaseNotes/Form.json
 #. [getStarted.releaseNotesTitle]
 #. defaultMessage is:
-#. Decrediton v{version} Released
+#. Eacrediton v{version} Released
 msgctxt "getStarted.releaseNotesTitle"
-msgid "Decrediton v{version} Released"
+msgid "Eacrediton v{version} Released"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/OpenWallet/DecryptForm.json
@@ -2078,9 +2078,9 @@ msgstr ""
 #. defaultMessage is:
 #. Enter the passphrase you just created to scan the blockchain for additional accounts you may have previously created with your wallet.
 #. 
-#.   Your account names aren't stored on the blockchain, so you will have to rename them after setting up Decrediton.
+#.   Your account names aren't stored on the blockchain, so you will have to rename them after setting up Eacrediton.
 msgctxt "getStarted.discoverAccountsInfo"
-msgid "Enter the passphrase you just created to scan the blockchain for additional accounts you may have previously created with your wallet.\n\n  Your account names aren't stored on the blockchain, so you will have to rename them after setting up Decrediton."
+msgid "Enter the passphrase you just created to scan the blockchain for additional accounts you may have previously created with your wallet.\n\n  Your account names aren't stored on the blockchain, so you will have to rename them after setting up Eacrediton."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/SecurityPage/SignMessage/Form.json
@@ -2630,9 +2630,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GovernancePage/index.json
 #. [governance.description]
 #. defaultMessage is:
-#. Governance aspects of Decred.
+#. Governance aspects of Eacred.
 msgctxt "governance.description"
-msgid "Governance aspects of Decred."
+msgid "Governance aspects of Eacred."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/AccountsPage/AccountRow/AccountDetails.json
@@ -2708,11 +2708,11 @@ msgid "Hide"
 msgstr ""
 
 #: app/i18n/extracted/static/menus.json
-#. [appMenu.hideDecrediton]
+#. [appMenu.hideEacrediton]
 #. defaultMessage is:
-#. Hide Decrediton
-msgctxt "appMenu.hideDecrediton"
-msgid "Hide Decrediton"
+#. Hide Eacrediton
+msgctxt "appMenu.hideEacrediton"
+msgid "Hide Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/static/menus.json
@@ -3104,9 +3104,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/HelpPage/TutorialsTab/index.json
 #. [help.description.tutorials]
 #. defaultMessage is:
-#. Learn about the various aspects of the Decred network.
+#. Learn about the various aspects of the Eacred network.
 msgctxt "help.description.tutorials"
-msgid "Learn about the various aspects of the Decred network."
+msgid "Learn about the various aspects of the Eacred network."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/messages.json
@@ -3200,9 +3200,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/indicators/LoaderBarBottom.json
 #. [getStarted.chainLoading.syncEstimation.small]
 #. defaultMessage is:
-#. Loading Decred blockchain, completion estimated
+#. Loading Eacred blockchain, completion estimated
 msgctxt "getStarted.chainLoading.syncEstimation.small"
-msgid "Loading Decred blockchain, completion estimated"
+msgid "Loading Eacred blockchain, completion estimated"
 msgstr ""
 
 #: app/i18n/extracted/app/components/indicators/LoadingMoreTickets.json
@@ -3328,10 +3328,10 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/TransactionsPage/SendTab/index.json
 #. [transactions.description.send.mainnet]
 #. defaultMessage is:
-#. Mainnet Decred addresses always begin with letter D and contain 26-35 alphanumeric characters
+#. Mainnet Eacred addresses always begin with letter D and contain 26-35 alphanumeric characters
 #. (e.g. DxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0X).
 msgctxt "transactions.description.send.mainnet"
-msgid "Mainnet Decred addresses always begin with letter D and contain 26-35 alphanumeric characters\n(e.g. DxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0X)."
+msgid "Mainnet Eacred addresses always begin with letter D and contain 26-35 alphanumeric characters\n(e.g. DxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0X)."
 msgstr ""
 
 #: app/i18n/extracted/app/components/buttons/ImportScriptIconButton.json
@@ -5129,25 +5129,25 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GetStartedPage/PrivacyPage/TopLevelOptions.json
 #. [privacy.titleSub]
 #. defaultMessage is:
-#. Select how Decrediton should connect to external services. You can change this in the application settings later.
+#. Select how Eacrediton should connect to external services. You can change this in the application settings later.
 msgctxt "privacy.titleSub"
-msgid "Select how Decrediton should connect to external services. You can change this in the application settings later."
+msgid "Select how Eacrediton should connect to external services. You can change this in the application settings later."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/SpvChoicePage/TopLevelOptions.json
 #. [spv.titleSub]
 #. defaultMessage is:
-#. Select how Decrediton wallet's should connect to the network. You can change this in the application settings later. For more in-depth information about SPV and how it works, you can go
+#. Select how Eacrediton wallet's should connect to the network. You can change this in the application settings later. For more in-depth information about SPV and how it works, you can go
 msgctxt "spv.titleSub"
-msgid "Select how Decrediton wallet's should connect to the network. You can change this in the application settings later. For more in-depth information about SPV and how it works, you can go"
+msgid "Select how Eacrediton wallet's should connect to the network. You can change this in the application settings later. For more in-depth information about SPV and how it works, you can go"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/PrivacyPage/CustomPrivacyOptions.json
 #. [privacy.custom.titleSub]
 #. defaultMessage is:
-#. Select which external requests Decrediton is allowed to make. You can change this later on the app settings page.
+#. Select which external requests Eacrediton is allowed to make. You can change this later on the app settings page.
 msgctxt "privacy.custom.titleSub"
-msgid "Select which external requests Decrediton is allowed to make. You can change this later on the app settings page."
+msgid "Select which external requests Eacrediton is allowed to make. You can change this later on the app settings page."
 msgstr ""
 
 #: app/i18n/extracted/app/components/buttons/SendTransactionButton.json
@@ -5369,9 +5369,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/ShutdownAppPage.json
 #. [shutdown.header.title]
 #. defaultMessage is:
-#. Shutting down Decrediton
+#. Shutting down Eacrediton
 msgctxt "shutdown.header.title"
-msgid "Shutting down Decrediton"
+msgid "Shutting down Eacrediton"
 msgstr ""
 
 #: app/i18n/extracted/app/components/buttons/SignMessageButton.json
@@ -5849,20 +5849,20 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/TransactionsPage/SendTab/index.json
 #. [transactions.description.send.testnet]
 #. defaultMessage is:
-#. Testnet Decred addresses always begin with letter T and contain 26-35 alphanumeric characters
+#. Testnet Eacred addresses always begin with letter T and contain 26-35 alphanumeric characters
 #. (e.g. TxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0).
 msgctxt "transactions.description.send.testnet"
-msgid "Testnet Decred addresses always begin with letter T and contain 26-35 alphanumeric characters\n(e.g. TxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0)."
+msgid "Testnet Eacred addresses always begin with letter T and contain 26-35 alphanumeric characters\n(e.g. TxxXXXXXxXXXxXXXXxxx0XxXXXxxXxXxX0)."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/InvalidRPCVersion.json
 #. [invalidRPCVersion.info]
 #. defaultMessage is:
-#. The API of the currently running wallet ({walletRPCVersion}) is not compatible with Decrediton (required version {requiredWalletRPCVersion}).
+#. The API of the currently running wallet ({walletRPCVersion}) is not compatible with Eacrediton (required version {requiredWalletRPCVersion}).
 #. 
 #.         Please update the daemon (eacrd) and wallet (eacrwallet) to the latest version, then try again.
 msgctxt "invalidRPCVersion.info"
-msgid "The API of the currently running wallet ({walletRPCVersion}) is not compatible with Decrediton (required version {requiredWalletRPCVersion}).\n\n        Please update the daemon (eacrd) and wallet (eacrwallet) to the latest version, then try again."
+msgid "The API of the currently running wallet ({walletRPCVersion}) is not compatible with Eacrediton (required version {requiredWalletRPCVersion}).\n\n        Please update the daemon (eacrd) and wallet (eacrwallet) to the latest version, then try again."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/LNPage/ConnectPage.json
@@ -5884,9 +5884,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/SettingsPage/Page.json
 #. [settings.resetNetworkContent]
 #. defaultMessage is:
-#. The setting you have chosen to change requires Decrediton to be restarted.  Please confirm this action before proceeding.
+#. The setting you have chosen to change requires Eacrediton to be restarted.  Please confirm this action before proceeding.
 msgctxt "settings.resetNetworkContent"
-msgid "The setting you have chosen to change requires Decrediton to be restarted.  Please confirm this action before proceeding."
+msgid "The setting you have chosen to change requires Eacrediton to be restarted.  Please confirm this action before proceeding."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GovernancePage/Blockchain/Page.json
@@ -5924,9 +5924,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/FatalErrorPage.json
 #. [fatal.suggestion.corrupted]
 #. defaultMessage is:
-#. This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Decrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities.
+#. This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Eacrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities.
 msgctxt "fatal.suggestion.corrupted"
-msgid "This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Decrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities."
+msgid "This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Eacrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities."
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/FatalErrorPage.json
@@ -6004,9 +6004,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GetStartedPage/SpvChoicePage/TopLevelOptions.json
 #. [spv.options.disable.description]
 #. defaultMessage is:
-#. This will use the regular Decred Daemon and fully verify blocks.  This will take longer, but is fully secure.  Any block or mined transaction can be fully trusted.
+#. This will use the regular Eacred Daemon and fully verify blocks.  This will take longer, but is fully secure.  Any block or mined transaction can be fully trusted.
 msgctxt "spv.options.disable.description"
-msgid "This will use the regular Decred Daemon and fully verify blocks.  This will take longer, but is fully secure.  Any block or mined transaction can be fully trusted."
+msgid "This will use the regular Eacred Daemon and fully verify blocks.  This will take longer, but is fully secure.  Any block or mined transaction can be fully trusted."
 msgstr ""
 
 #: app/i18n/extracted/app/components/Snackbar/Notification/Transaction.json
@@ -7333,9 +7333,9 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/FatalErrorPage.json
 #. [fatal.removeConfirmModal.content]
 #. defaultMessage is:
-#. Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Decrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards.
+#. Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Eacrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards.
 msgctxt "fatal.removeConfirmModal.content"
-msgid "Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Decrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards."
+msgid "Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Eacrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards."
 msgstr ""
 
 #: app/i18n/extracted/app/components/buttons/WatchOnlyWalletSwitch.json
@@ -7365,17 +7365,17 @@ msgstr ""
 #: app/i18n/extracted/app/components/views/GetStartedPage/LanguageSelectPage/Page.json
 #. [selectLang.title]
 #. defaultMessage is:
-#. Welcome to Decrediton Wallet
+#. Welcome to Eacrediton Wallet
 msgctxt "selectLang.title"
-msgid "Welcome to Decrediton Wallet"
+msgid "Welcome to Eacrediton Wallet"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/GetStartedPage/messages.json
 #. [loader.title]
 #. defaultMessage is:
-#. Welcome to Decrediton Wallet
+#. Welcome to Eacrediton Wallet
 msgctxt "loader.title"
-msgid "Welcome to Decrediton Wallet"
+msgid "Welcome to Eacrediton Wallet"
 msgstr ""
 
 #: app/i18n/extracted/app/components/views/HelpPage/TutorialsTab/index.json

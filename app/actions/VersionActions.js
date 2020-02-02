@@ -40,10 +40,10 @@ export const getWalletRPCVersionAttempt = () => (dispatch, getState) => {
         versionErr = "Unable to obtain Eacrwallet API version";
       } else {
         if (!semverCompatible(requiredVersion, walletVersion)) {
-          versionErr = "API versions not compatible..  Decrediton requires "
+          versionErr = "API versions not compatible..  Eacrediton requires "
             + requiredVersion + " but wallet " + walletVersion
             + " does not satisfy the requirement. Please check your"
-            + " installation, Decrediton and Eacrwallet versions should match.";
+            + " installation, Eacrediton and Eacrwallet versions should match.";
         }
       }
       if (versionErr) {

@@ -16,7 +16,7 @@ const PageHeader = () =>
 const TabHeader = treasuryInfo(({ treasuryBalance }) =>
   <>
     <DescriptionHeader
-      description={<T id="governance.description" m="Governance aspects of Decred." />}
+      description={<T id="governance.description" m="Governance aspects of Eacred." />}
     />
     { treasuryBalance && <DescriptionHeader
       description={

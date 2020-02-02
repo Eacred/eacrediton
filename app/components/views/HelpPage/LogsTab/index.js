@@ -1,5 +1,5 @@
 import Logs from "./Page";
-import { getEcrdLogs, getEacrwalletLogs, getDecreditonLogs, getDcrlndLogs } from "wallet";
+import { getEcrdLogs, getEacrwalletLogs, getEacreditonLogs, getDcrlndLogs } from "wallet";
 import { logging } from "connectors";
 import { DescriptionHeader } from "layout";
 import { FormattedMessage as T } from "react-intl";
@@ -43,14 +43,14 @@ class LogsTabBody extends React.Component {
       dcrlndLogs: "",
       showEcrdLogs: false,
       showEacrwalletLogs: false,
-      showDecreditonLogs: false,
+      showEacreditonLogs: false,
       showDcrlndLogs: false
     };
   }
 
   render() {
-    const { onShowDecreditonLogs, onShowEcrdLogs, onShowEacrwalletLogs,
-      onHideDecreditonLogs, onHideEcrdLogs, onHideEacrwalletLogs, onShowDcrlndLogs,
+    const { onShowEacreditonLogs, onShowEcrdLogs, onShowEacrwalletLogs,
+      onHideEacreditonLogs, onHideEcrdLogs, onHideEacrwalletLogs, onShowDcrlndLogs,
       onHideDcrlndLogs
     } = this;
     return (
@@ -58,11 +58,11 @@ class LogsTabBody extends React.Component {
         {...{
           ...this.props,
           ...this.state,
-          onShowDecreditonLogs,
+          onShowEacreditonLogs,
           onShowEcrdLogs,
           onShowEacrwalletLogs,
           onShowDcrlndLogs,
-          onHideDecreditonLogs,
+          onHideEacreditonLogs,
           onHideEcrdLogs,
           onHideEacrwalletLogs,
           onHideDcrlndLogs
@@ -73,7 +73,7 @@ class LogsTabBody extends React.Component {
 
   getLogs() {
     return Promise
-      .all([ getEcrdLogs(), getEacrwalletLogs(), getDecreditonLogs(), getDcrlndLogs() ])
+      .all([ getEcrdLogs(), getEacrwalletLogs(), getEacreditonLogs(), getDcrlndLogs() ])
       .then(([ rawEcrdLogs, rawEacrwalletLogs, eacreditonLogs, dcrlndLogs ]) => {
         const eacrdLogs = Buffer.from(rawEcrdLogs).toString("utf8");
         const eacrwalletLogs = Buffer.from(rawEacrwalletLogs).toString("utf8");
@@ -92,12 +92,12 @@ class LogsTabBody extends React.Component {
       });
   }
 
-  onShowDecreditonLogs() {
-    this.setState({ showDecreditonLogs: true });
+  onShowEacreditonLogs() {
+    this.setState({ showEacreditonLogs: true });
   }
 
-  onHideDecreditonLogs() {
-    this.setState({ showDecreditonLogs: false });
+  onHideEacreditonLogs() {
+    this.setState({ showEacreditonLogs: false });
   }
 
   onShowEcrdLogs() {

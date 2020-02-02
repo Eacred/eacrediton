@@ -14,7 +14,7 @@ import { STANDARD_EXTERNAL_REQUESTS } from "main_dev/externalRequests";
 import { DIFF_CONNECTION_ERROR, LOCALE, TESTNET } from "constants";
 import { enableTrezor } from "./TrezorActions";
 
-export const DECREDITON_VERSION = "DECREDITON_VERSION";
+export const EacredITON_VERSION = "EacredITON_VERSION";
 export const SELECT_LANGUAGE = "SELECT_LANGUAGE";
 export const FINISH_TUTORIAL = "FINISH_TUTORIAL";
 export const FINISH_PRIVACY = "FINISH_PRIVACY";
@@ -58,16 +58,16 @@ export const SYNC_DAEMON_ATTEMPT = "SYNC_DAEMON_ATTEMPT";
 export const SYNC_DAEMON_FAILED = "SYNC_DAEMON_FAILED";
 export const BACK_TO_CREDENTIALS = "BACK_TO_CREDENTIALS";
 
-export const checkDecreditonVersion = () => (dispatch, getState) =>{
+export const checkEacreditonVersion = () => (dispatch, getState) =>{
   const detectedVersion = getState().daemon.appVersion;
   const releaseApiURL = "https://api.github.com/repos/eacred/eacrediton/releases";
   axios.get(releaseApiURL, { timeout: 5000 })
     .then(function (response) {
       const currentVersion = response.data[0].tag_name.split("v")[1];
       if (semverCompatible(currentVersion, detectedVersion)) {
-        wallet.log("info", "Decrediton version up to date.");
+        wallet.log("info", "Eacrediton version up to date.");
       } else {
-        dispatch({ type: DECREDITON_VERSION, msg:  response.data[0].tag_name });
+        dispatch({ type: EacredITON_VERSION, msg:  response.data[0].tag_name });
       }
     })
     .catch(function (error) {
@@ -333,7 +333,7 @@ export const prepStartDaemon = () => (dispatch, getState) => {
   const { daemon: { daemonAdvanced, openForm } } = getState();
   const cliOptions = ipcRenderer.sendSync("get-cli-options");
   dispatch(registerForErrors());
-  dispatch(checkDecreditonVersion());
+  dispatch(checkEacreditonVersion());
   if (!daemonAdvanced) {
     dispatch(startDaemon());
     return;
@@ -480,8 +480,8 @@ export const getEacrwalletLogs = () => {
       });
 };
 
-export const getDecreditonLogs = () => {
-  wallet.getDecreditonLogs()
+export const getEacreditonLogs = () => {
+  wallet.getEacreditonLogs()
     .then(logs => {
       return(logs);
     }).catch(

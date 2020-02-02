@@ -1,6 +1,6 @@
 import Page from "./Heatmap";
 import { myTicketsCharts } from "connectors";
-import { DecredLoading } from "indicators";
+import { EacredLoading } from "indicators";
 
 @autobind
 class Heatmap extends React.Component{
@@ -14,7 +14,7 @@ class Heatmap extends React.Component{
 
   render() {
     const { ticketDataHeatmap } = this.props;
-    return ticketDataHeatmap.length > 0 ? <Page {...{ data: this.props.ticketDataHeatmap }}/> : <DecredLoading />;
+    return ticketDataHeatmap.length > 0 ? <Page {...{ data: this.props.ticketDataHeatmap }}/> : <EacredLoading />;
   }
 }
 

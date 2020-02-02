@@ -2,4 +2,4 @@ Quando um ticket é comprado, o custo do ticket é trancado em sua carteira até
 
 Quando uma proposta é liberada para votação na Politeia, uma cópia da lista de tickets vivos é feita no momento do início da votação. Todos esses tickets terão direito a votar na proposta em um processo off-chain.
 
-Como a validação de blocos é imutável, decisões feitas por todos os tickets que votaram são verificadas publicamente. Participação ativa no processo de staking ajuda a aumentar a segurança da rede da Decred, garante a qualidade da Proof-of-Work e determina a direção futura da Decred.
+Como a validação de blocos é imutável, decisões feitas por todos os tickets que votaram são verificadas publicamente. Participação ativa no processo de staking ajuda a aumentar a segurança da rede da Eacred, garante a qualidade da Proof-of-Work e determina a direção futura da Eacred.

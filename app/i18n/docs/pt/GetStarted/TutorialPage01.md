@@ -1,6 +1,6 @@
-# O que é a Blockchain Decred?
+# O que é a Blockchain Eacred?
 
-No coração da Decred está uma lista crescente de registros, compartilhada globalmente através de uma estrutura de dados decentralizada; essa é a blockchain da Decred.
+No coração da Eacred está uma lista crescente de registros, compartilhada globalmente através de uma estrutura de dados decentralizada; essa é a blockchain da Eacred.
 
 A blockchain armazena todos os dados transacionais e usa um sistema inovador **Proof-of-Stake (PoS)/Proof-of-Work (PoW)** para validar transações e manter a rede segura.
 

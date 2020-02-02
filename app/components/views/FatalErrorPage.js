@@ -27,12 +27,12 @@ class FatalErrorPage extends React.Component {
       errorMessage = (
         <>
           <div className="fatal-error-reset-blockchain">
-            <T id="fatal.suggestion.corrupted" m="This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Decrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities. " />
+            <T id="fatal.suggestion.corrupted" m="This error means your blockchain data has somehow become corrupted.  Typically, this is caused by a sector on the HDD/SDD that went bad and its built-in SMART didn't repair it, or the more likely case, there was a memory issue which corrupted the data.  To resolve, you must delete your blockchain data and re-download.  Press the button below to complete the process. When you restart Eacrediton, it will automatically begin your blockchain download. Please come to our support channel on slack/matrix/discord to get advice about running disk utilities. " />
           </div>
           <RemoveDaemonButton
             className="fatal-remove-button"
             modalTitle={<T id="fatal.removeConfirmModal.title" m="Remove daemon data"/>}
-            modalContent={<T id="fatal.removeConfirmModal.content" m="Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Decrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards."/>}
+            modalContent={<T id="fatal.removeConfirmModal.content" m="Warning this action is permanent! Please make sure you want to remove your blockchain data before proceeding. Eacrediton will automatically shutdown after deleting the folder. Please manually restart it afterwards."/>}
             onSubmit={deleteDaemonData}
             buttonLabel={ <T id="fatal.button.delete" m="Delete and Shutdown"/>}/>
         </>);
@@ -79,7 +79,7 @@ class FatalErrorPage extends React.Component {
                 <T id="fatal.retry.connection.button" m="Return to Daemon Connection"/>
               </KeyBlueButton>}
             <KeyBlueButton onClick={shutdownApp}>
-              <T id="fatal.button" m="Close Decrediton"/>
+              <T id="fatal.button" m="Close Eacrediton"/>
             </KeyBlueButton>
           </div>
         </div>

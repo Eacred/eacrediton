@@ -4,5 +4,5 @@ para esta cartera antes de proceder al borrado y la recuperación del dispositiv
 
 La inobservancia de esta advertencia conllevará la **pérdida de fondos**.
 
-Asimismo, cabe señalar que Decrediton solo admite la recuperación de semillas
+Asimismo, cabe señalar que Eacrediton solo admite la recuperación de semillas
 de 24 palabras (256 bits) y que las palabras para las importaciones de Trezor y eacrwallet son *distintas*.

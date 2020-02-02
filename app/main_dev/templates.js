@@ -6,7 +6,7 @@ const darwinTemplate = (mainWindow, locale) => [
   {
     label: locale.messages["appMenu.eacrediton"],
     submenu: [ {
-      label: locale.messages["appMenu.aboutDecrediton"],
+      label: locale.messages["appMenu.aboutEacrediton"],
       selector: "orderFrontStandardAboutPanel:",
       click() {
         mainWindow.webContents.send("show-about-modal");
@@ -19,7 +19,7 @@ const darwinTemplate = (mainWindow, locale) => [
     }, {
       type: "separator"
     }, {
-      label: locale.messages["appMenu.hideDecrediton"],
+      label: locale.messages["appMenu.hideEacrediton"],
       accelerator: "Command+H",
       selector: "hide:"
     }, {

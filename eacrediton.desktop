@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Decrediton
-Comment=Decrediton the Decred wallet
+Name=Eacrediton
+Comment=Eacrediton the Eacred wallet
 Exec=eacrediton %U
 Terminal=false
 Type=Application

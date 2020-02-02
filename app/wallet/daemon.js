@@ -3,9 +3,9 @@ import { ipcRenderer } from "electron";
 import { isString } from "util";
 import { withLog as log, logOptionNoResponseData } from "./app";
 
-export const checkDecreditonVersion = log(() => Promise
+export const checkEacreditonVersion = log(() => Promise
   .resolve(ipcRenderer.sendSync("check-version"))
-, "Check Decrediton release version");
+, "Check Eacrediton release version");
 
 export const startDaemon = log((params, testnet) => Promise
   .resolve(ipcRenderer.sendSync("start-daemon", params, testnet))
@@ -127,7 +127,7 @@ export const getDcrlndLogs = () => Promise
   });
 
 
-export const getDecreditonLogs = () => Promise
+export const getEacreditonLogs = () => Promise
   .resolve(ipcRenderer.sendSync("get-eacrediton-logs"))
   .then(logs => {
     if (logs) return logs;

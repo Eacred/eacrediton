@@ -49,4 +49,4 @@ environment:
 
 artifacts:
   - path: 'release\*.exe'
-    name: DecreditonRelease
+    name: EacreditonRelease

@@ -19,13 +19,13 @@ export const LinksTab = () => (
       <HelpLink className={"help-github-icon"} href="https://github.com/Eacred/eacrediton" title={<T id="help.github.title" m="GitHub"/>} subtitle={<T id="help.github.subtitle" m="github.com/Eacred/eacrediton"/>} />
       <HelpLinkInfoModal className={"help-constitution-icon"}
         title={<T id="help.constitution" m="Constitution"/>}
-        subtitle={<T id="help.constitution.subtitle" m="Decred Project Constitution"/>}
-        modalTitle={<h1><T id="help.constitution.modal.title" m="Decred Constitution" /></h1>}
-        modalContent={<Documentation name="DecredConstitution" />}
+        subtitle={<T id="help.constitution.subtitle" m="Eacred Project Constitution"/>}
+        modalTitle={<h1><T id="help.constitution.modal.title" m="Eacred Constitution" /></h1>}
+        modalContent={<Documentation name="EacredConstitution" />}
         double
       />
       <HelpLinkAboutModal className={"help-star-icon"}
-        title={<T id="help.about.eacrediton" m="About Decrediton"/>}
+        title={<T id="help.about.eacrediton" m="About Eacrediton"/>}
         subtitle={<T id="help.about.eacrediton.subtitle" m="Software Summary"/>}
       />
     </div>

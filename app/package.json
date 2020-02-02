@@ -5,7 +5,7 @@
   "description": "Cross-platform eacred gui based on Electron and React",
   "main": "./main.js",
   "author": {
-    "name": "Decred Team",
+    "name": "Eacred Team",
     "email": "info@eacred.org",
     "url": "https://github.com/Eacred"
   },

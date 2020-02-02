@@ -97,19 +97,19 @@
   },
   {
     "id": "appMenu.eacrediton",
-    "defaultMessage": "Decrediton"
+    "defaultMessage": "Eacrediton"
   },
   {
-    "id": "appMenu.aboutDecrediton",
-    "defaultMessage": "About Decrediton"
+    "id": "appMenu.aboutEacrediton",
+    "defaultMessage": "About Eacrediton"
   },
   {
     "id": "appMenu.services",
     "defaultMessage": "Services"
   },
   {
-    "id": "appMenu.hideDecrediton",
-    "defaultMessage": "Hide Decrediton"
+    "id": "appMenu.hideEacrediton",
+    "defaultMessage": "Hide Eacrediton"
   },
   {
     "id": "appMenu.hideOthers",

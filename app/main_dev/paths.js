@@ -10,7 +10,7 @@ import { TESTNET, MAINNET } from "constants";
 // electron in production mode.
 export function getAppDataDirectory() {
   if (os.platform() == "win32") {
-    return path.join(os.homedir(), "AppData", "Local", "Decrediton");
+    return path.join(os.homedir(), "AppData", "Local", "Eacrediton");
   } else if (process.platform === "darwin") {
     return path.join(os.homedir(), "Library","Application Support","eacrediton");
   } else {

@@ -27,7 +27,7 @@ const TicketAutoBuyerForm = ({
             modalDescription={
               <div>
                 <span className="orange-warning"><T id="tickets.startAutoBuyerConfirmation.attention" m="Attention!" /></span>
-                <T id="tickets.startAutoBuyerConfirmation.description" m="Decrediton must remain running for tickets to be automatically purchased." />
+                <T id="tickets.startAutoBuyerConfirmation.description" m="Eacrediton must remain running for tickets to be automatically purchased." />
                 <div className="auto-buyer-modal-confirm">
                   <div className="auto-buyer-modal-confirm-row">
                     <div className="auto-buyer-modal-confirm-label"><T id="autobuyer.modal.balanceToMaintain" m="Balance To Maintain" />:</div>

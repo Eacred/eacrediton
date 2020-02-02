@@ -1,4 +1,4 @@
-import { MAINNET } from "./Decrediton";
+import { MAINNET } from "./Eacrediton";
 
 export const DAEMON_ADVANCED = "daemon_start_advanced";
 export const THEME = "theme";

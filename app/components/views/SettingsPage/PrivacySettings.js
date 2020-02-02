@@ -69,7 +69,7 @@ const PrivacySettings = ({
           onChange={toggle(EXTERNALREQUEST_POLITEIA)}
         />
         <AllowableRequestType
-          label={<T id="settings.privacy.eacrdata.label" m="Decred Block Explorer" />}
+          label={<T id="settings.privacy.eacrdata.label" m="Eacred Block Explorer" />}
           id="eacrdata"
           description={<T id="settings.privacy.eacrdata.description" m="Access chain information from eacrdata.eacred.org" />}
           checked={tempSettings.allowedExternalRequests.indexOf(EXTERNALREQUEST_DCRDATA) > -1}

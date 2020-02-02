@@ -4,7 +4,7 @@ import VoteTimeChartPage from "./charts/VoteTime";
 import StakeRewardsChartPage from "./charts/StakeRewards";
 import HeatmapStats from "./Heatmap";
 import StakePoolStats from "./charts/StakePoolStats";
-import { DecredLoading, NoStats } from "indicators";
+import { EacredLoading, NoStats } from "indicators";
 import { Tooltip, Subtitle } from "shared";
 
 
@@ -37,7 +37,7 @@ const TicketsStatsPage = ({ getMyTicketsStatsRequest, hasStats, hasTickets, allS
     <>
       <Subtitle title={<T id="statistics.subtitle" m="Statistics"/>} className={"is-row"} children={subtitleMenu({ allStakePoolStats, hasStats })} />
       <div className="my-tickets-charts">
-        {getMyTicketsStatsRequest ? <DecredLoading /> :
+        {getMyTicketsStatsRequest ? <EacredLoading /> :
           <Switch>
             <Route path="/tickets/statistics/voteTime" component={VoteTimeChartPage} />
             <Route path="/tickets/statistics/stakerewards" component={StakeRewardsChartPage} />

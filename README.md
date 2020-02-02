@@ -10,7 +10,7 @@ Electron.
 
 Currently eacrediton is available on Windows, Linux, and macOS.
 
-Decrediton will NOT use or in any way disrupt the CLI wallet file you may
+Eacrediton will NOT use or in any way disrupt the CLI wallet file you may
 already be using at this time.
 
 Download the eacrediton release for your operating system on [eacred/eacred-binaries](https://github.com/Eacred/eacred-binaries/releases).
@@ -42,7 +42,7 @@ and then run the file:
 This will start eacrd and eacrwallet for you.
 
 On macOS, double-click the .dmg file, drag the .app to your
-Applications folder.  Double click on Decrediton.app to start.
+Applications folder.  Double click on Eacrediton.app to start.
 
 You can also install via [brew cask](https://caskroom.github.io):
 ```bash
@@ -85,7 +85,7 @@ The current recommended versions for the main tools are:
 To ease node version management, install all top-level tools (node/npm/yarn) using nvm ([linux/mac](https://github.com/creationix/nvm), [windows](https://github.com/creationix/nvm)).
 
 
-### Decred binaries
+### Eacred binaries
 
 Development using the master version of eacrediton usually requires using a
 corresponding master version of eacrd/eacrwallet.
@@ -149,13 +149,13 @@ configuration options either start eacrediton with the ```--advanced``` option o
 
 Note: Your config.json file is located in the following directories:
 
-Windows - ```C:\Users\<your-username>\AppData\Local\Decrediton\config.json```
+Windows - ```C:\Users\<your-username>\AppData\Local\Eacrediton\config.json```
 
-macOS - ```$HOME/Library/Application\ Support/Decrediton/config.json```
+macOS - ```$HOME/Library/Application\ Support/Eacrediton/config.json```
 
 Linux - ```~/.config/eacrediton/config.json```
 
-Run the following to start the Decred daemon in a standalone terminal window:
+Run the following to start the Eacred daemon in a standalone terminal window:
 
 Windows - ```eacrd --testnet -u USER -P PASSWORD --rpclisten=127.0.0.1:19119 --rpccert=C:\Users\<username>\AppData\Local\Ecrd\rpc.cert```
 

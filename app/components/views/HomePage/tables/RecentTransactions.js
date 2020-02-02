@@ -1,6 +1,6 @@
 // @flow
 import { home } from "connectors";
-import { DecredLoading } from "indicators";
+import { EacredLoading } from "indicators";
 import TxHistory from "TxHistory";
 import { FormattedMessage as T } from "react-intl";
 import "style/Fonts.less";
@@ -17,7 +17,7 @@ const RecentTransactions = ({
 }) => {
   const hasTxs = (transactions.length > 0);
   return (
-    getTransactionsRequestAttempt ? <DecredLoading /> :
+    getTransactionsRequestAttempt ? <EacredLoading /> :
       <div>
         <div className="home-content-title is-row">
           {hasTxs

@@ -19,7 +19,7 @@ export const TestNetParams = {
   HDCoinType: 1,
 
   TreasuryAddress: "TcrypGAcGCRVXrES7hWqVZb5oLJKCZEtoL1",
-  trezorCoinName: "Decred Testnet"
+  trezorCoinName: "Eacred Testnet"
 };
 
 export const MainNetParams = {
@@ -37,7 +37,7 @@ export const MainNetParams = {
   HDCoinType: 42,
 
   TreasuryAddress: "Dcur2mcGjmENx4DhNqDctW5wJCVyT3Qeqkx",
-  trezorCoinName: "Decred"
+  trezorCoinName: "Eacred"
 };
 
 // MAX_DCR_AMOUNT represents the maximum eacred amount in atoms.

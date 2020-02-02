@@ -15,9 +15,9 @@ const Logs = ({
   isDaemonStarted,
   walletReady,
   eacreditonLogs,
-  showDecreditonLogs,
-  onShowDecreditonLogs,
-  onHideDecreditonLogs,
+  showEacreditonLogs,
+  onShowEacreditonLogs,
+  onHideEacreditonLogs,
   lnActive,
   lnConnectAttempt,
   lnStartAttempt,
@@ -61,14 +61,14 @@ const Logs = ({
         </div>
       </div>
     }
-    {!showDecreditonLogs ?
+    {!showEacreditonLogs ?
       <div className="log-area hidden">
-        <div className="log-area-title hidden" onClick={onShowDecreditonLogs}>
+        <div className="log-area-title hidden" onClick={onShowEacreditonLogs}>
           <T id="help.logs.eacrediton" m="eacrediton" />
         </div>
       </div>:
       <div className="log-area expanded">
-        <div className="log-area-title expanded" onClick={onHideDecreditonLogs}>
+        <div className="log-area-title expanded" onClick={onHideEacreditonLogs}>
           <T id="help.logs.eacrediton" m="eacrediton" />
         </div>
         <div className="log-area-logs">

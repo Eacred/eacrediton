@@ -9,7 +9,7 @@ const LanguageSelectPage = ({ availableLanguages, selectedLang, onChangeSelected
     <div className={cx("page-body getstarted", isTestNet && "testnet-body")}>
       <div className="getstarted-new">
         <div className="language-select-title">
-          <T id="selectLang.title" m={"Welcome to Decrediton Wallet"}/>
+          <T id="selectLang.title" m={"Welcome to Eacrediton Wallet"}/>
         </div>
         <div className="language-select-title-sub">
           <T id="selectLang.titleSub" m={"Choose your language"}/>
