@@ -203,7 +203,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "node-gyp": "^5.0.2",
     "node-loader": "^0.6.0",
     "react-intl-translations-manager": "^5.0.0",
