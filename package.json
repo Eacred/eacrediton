@@ -229,7 +229,7 @@
     "electron-devtools-installer": "^2.2.4",
     "electron-rebuild": "^1.8.6",
     "enzyme-adapter-react-16": "^1.12.1",
-    "ini": "^1.3.4",
+    "ini": "^1.3.6",
     "int64-buffer": "^0.1.10",
     "is-running": "^2.1.0",
     "lodash": "^4.17.14",
